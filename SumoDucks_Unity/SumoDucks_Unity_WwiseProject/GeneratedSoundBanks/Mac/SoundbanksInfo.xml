@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="120">
+	<RootPaths>
+		<ProjectRoot>C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\GeneratedSoundBanks\Mac\</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2381502256" Name="amb_play" ObjectPath="\Events\Default Work Unit\amb_play"/>
+				<Event Id="729984210" Name="amb_stop" ObjectPath="\Events\Default Work Unit\amb_stop" MaxAttenuation="0.000000"/>
+				<Event Id="445985469" Name="die" ObjectPath="\Events\Default Work Unit\die"/>
+				<Event Id="2026842688" Name="fs_heavy" ObjectPath="\Events\Default Work Unit\fs_heavy"/>
+				<Event Id="1697625845" Name="fs_light" ObjectPath="\Events\Default Work Unit\fs_light"/>
+				<Event Id="2280827611" Name="kwak" ObjectPath="\Events\Default Work Unit\kwak"/>
+				<Event Id="202194903" Name="music_play" ObjectPath="\Events\Default Work Unit\music_play"/>
+				<Event Id="3227181061" Name="music_stop" ObjectPath="\Events\Default Work Unit\music_stop" MaxAttenuation="0.000000"/>
+				<Event Id="3854606522" Name="tiger" ObjectPath="\Events\Default Work Unit\tiger"/>
+				<Event Id="2491838135" Name="wave_light" ObjectPath="\Events\Default Work Unit\wave_light"/>
+				<Event Id="145824316" Name="wave_medium" ObjectPath="\Events\Default Work Unit\wave_medium"/>
+				<Event Id="4259068396" Name="wave_strong" ObjectPath="\Events\Default Work Unit\wave_strong"/>
+				<Event Id="1574979720" Name="wavebuildup_start" ObjectPath="\Events\Default Work Unit\wavebuildup_start"/>
+				<Event Id="431960276" Name="wavebuildup_stop" ObjectPath="\Events\Default Work Unit\wavebuildup_stop" MaxAttenuation="0.000000"/>
+				<Event Id="979765101" Name="win" ObjectPath="\Events\Default Work Unit\win"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="70697998" Language="SFX">
+					<ShortName>win6.wav</ShortName>
+					<Path>SFX\win6_9E69E797.wem</Path>
+				</File>
+				<File Id="109867281" Language="SFX">
+					<ShortName>DK_wave_light.wav</ShortName>
+					<Path>SFX\DK_wave_light_9E69E797.wem</Path>
+				</File>
+				<File Id="131283075" Language="SFX">
+					<ShortName>win4.wav</ShortName>
+					<Path>SFX\win4_9E69E797.wem</Path>
+				</File>
+				<File Id="253488060" Language="SFX">
+					<ShortName>DCK_kwak_2.wav</ShortName>
+					<Path>SFX\DCK_kwak_2_9E69E797.wem</Path>
+				</File>
+				<File Id="296673133" Language="SFX">
+					<ShortName>win8.wav</ShortName>
+					<Path>SFX\win8_9E69E797.wem</Path>
+				</File>
+				<File Id="340441207" Language="SFX">
+					<ShortName>DCK_die_2.wav</ShortName>
+					<Path>SFX\DCK_die_2_9E69E797.wem</Path>
+				</File>
+				<File Id="364106009" Language="SFX">
+					<ShortName>DCK_kwak_5.wav</ShortName>
+					<Path>SFX\DCK_kwak_5_9E69E797.wem</Path>
+				</File>
+				<File Id="376697483" Language="SFX">
+					<ShortName>DCK_die_1.wav</ShortName>
+					<Path>SFX\DCK_die_1_9E69E797.wem</Path>
+				</File>
+				<File Id="384519541" Language="SFX">
+					<ShortName>win2.wav</ShortName>
+					<Path>SFX\win2_9E69E797.wem</Path>
+				</File>
+				<File Id="394272330" Language="SFX">
+					<ShortName>win1.wav</ShortName>
+					<Path>SFX\win1_9E69E797.wem</Path>
+				</File>
+				<File Id="401559340" Language="SFX">
+					<ShortName>DK_amb.wav</ShortName>
+					<Path>SFX\DK_amb_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="405269119" Language="SFX">
+					<ShortName>DCK_kwak_6.wav</ShortName>
+					<Path>SFX\DCK_kwak_6_9E69E797.wem</Path>
+				</File>
+				<File Id="406401699" Language="SFX">
+					<ShortName>DCK_kwak_1.wav</ShortName>
+					<Path>SFX\DCK_kwak_1_9E69E797.wem</Path>
+				</File>
+				<File Id="419202065" Language="SFX">
+					<ShortName>DCK_kwak_9.wav</ShortName>
+					<Path>SFX\DCK_kwak_9_9E69E797.wem</Path>
+				</File>
+				<File Id="429461730" Language="SFX">
+					<ShortName>win3.wav</ShortName>
+					<Path>SFX\win3_9E69E797.wem</Path>
+				</File>
+				<File Id="429568624" Language="SFX">
+					<ShortName>win5.wav</ShortName>
+					<Path>SFX\win5_9E69E797.wem</Path>
+				</File>
+				<File Id="432512304" Language="SFX">
+					<ShortName>duck_maxed_loop.wav</ShortName>
+					<Path>SFX\duck_maxed_loop_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="475669554" Language="SFX">
+					<ShortName>win10.wav</ShortName>
+					<Path>SFX\win10_9E69E797.wem</Path>
+				</File>
+				<File Id="496530663" Language="SFX">
+					<ShortName>DK_fs_heavy.wav</ShortName>
+					<Path>SFX\DK_fs_heavy_9E69E797.wem</Path>
+				</File>
+				<File Id="514329837" Language="SFX">
+					<ShortName>DK_wave_medium.wav</ShortName>
+					<Path>SFX\DK_wave_medium_9E69E797.wem</Path>
+				</File>
+				<File Id="516747014" Language="SFX">
+					<ShortName>DCK_tiger_3.wav</ShortName>
+					<Path>SFX\DCK_tiger_3_9E69E797.wem</Path>
+				</File>
+				<File Id="545666735" Language="SFX">
+					<ShortName>win9.wav</ShortName>
+					<Path>SFX\win9_9E69E797.wem</Path>
+				</File>
+				<File Id="725323681" Language="SFX">
+					<ShortName>win7.wav</ShortName>
+					<Path>SFX\win7_9E69E797.wem</Path>
+				</File>
+				<File Id="787905703" Language="SFX">
+					<ShortName>DK_wave_strong.wav</ShortName>
+					<Path>SFX\DK_wave_strong_9E69E797.wem</Path>
+				</File>
+				<File Id="807228184" Language="SFX">
+					<ShortName>DK_wavebuildup.wav</ShortName>
+					<Path>SFX\DK_wavebuildup_9E69E797.wem</Path>
+				</File>
+				<File Id="828365205" Language="SFX">
+					<ShortName>DK_fs_light.wav</ShortName>
+					<Path>SFX\DK_fs_light_9E69E797.wem</Path>
+				</File>
+				<File Id="829779709" Language="SFX">
+					<ShortName>DCK_kwak_7.wav</ShortName>
+					<Path>SFX\DCK_kwak_7_9E69E797.wem</Path>
+				</File>
+				<File Id="839582366" Language="SFX">
+					<ShortName>duck_maxed_begin.wav</ShortName>
+					<Path>SFX\duck_maxed_begin_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="876111251" Language="SFX">
+					<ShortName>DCK_tiger_1.wav</ShortName>
+					<Path>SFX\DCK_tiger_1_9E69E797.wem</Path>
+				</File>
+				<File Id="935447075" Language="SFX">
+					<ShortName>DCK_tiger_2.wav</ShortName>
+					<Path>SFX\DCK_tiger_2_9E69E797.wem</Path>
+				</File>
+				<File Id="962223721" Language="SFX">
+					<ShortName>DCK_kwak_8.wav</ShortName>
+					<Path>SFX\DCK_kwak_8_9E69E797.wem</Path>
+				</File>
+				<File Id="1001488266" Language="SFX">
+					<ShortName>DCK_kwak_10.wav</ShortName>
+					<Path>SFX\DCK_kwak_10_9E69E797.wem</Path>
+				</File>
+				<File Id="1006743345" Language="SFX">
+					<ShortName>DCK_kwak_4.wav</ShortName>
+					<Path>SFX\DCK_kwak_4_9E69E797.wem</Path>
+				</File>
+				<File Id="1054018179" Language="SFX">
+					<ShortName>DCK_kwak_3.wav</ShortName>
+					<Path>SFX\DCK_kwak_3_9E69E797.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

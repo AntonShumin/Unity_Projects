@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{399FD049-5DF6-4B41-8C13-D9A001BDF027}" SchemaVersion="75">
+	<InteractiveMusic>
+		<WorkUnit Name="Default Work Unit" ID="{399FD049-5DF6-4B41-8C13-D9A001BDF027}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicPlaylistContainer Name="LevelMusic" ID="{CD0BA6A0-C08A-475B-A3D3-5EA72110A95A}" ShortID="821784202">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{256A0618-6FF3-4EA5-AC7C-87FF38507DC5}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5C1EFC43-E09F-4D22-B160-05C4DFC81BCB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="duck_maxed_begin" ID="{BB3EB089-170F-44B2-B80A-22EF0232F3B0}" ShortID="271624801">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="96050.8163265306"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{256A0618-6FF3-4EA5-AC7C-87FF38507DC5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5C1EFC43-E09F-4D22-B160-05C4DFC81BCB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="duck_maxed_begin" ID="{53D8CEC5-FC2C-4334-8A46-27D39383F681}" ShortID="886444364">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5C1EFC43-E09F-4D22-B160-05C4DFC81BCB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="duck_maxed_begin" ID="{79483FBA-4D9F-467C-B1B6-B43B706385BE}" ShortID="839582366">
+											<Language>SFX</Language>
+											<AudioFile>duck_maxed_begin.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{954BE7B2-6244-4A47-AC59-5734D7CDAD61}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{018062DA-4613-48B8-A6F3-D16CC2F1C7FE}">
+											<ClipList>
+												<MusicClip Name="duck_maxed_begin" ID="{E62FA338-7326-46D4-B16D-6862C3B58543}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="96050.8163265306"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="duck_maxed_begin" ID="{79483FBA-4D9F-467C-B1B6-B43B706385BE}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{E7F159FC-F4C6-4A83-8C6D-5847C7DFA78A}"/>
+								<MusicCue Name="Exit Cue" ID="{C9EEAA54-A2EB-4A82-AC05-59256487C4B9}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="96050.8163265306"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+						<MusicSegment Name="duck_maxed_loop" ID="{A2B7F675-F691-4EF9-9981-BFA45A5964C2}" ShortID="64272802">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="60000"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{256A0618-6FF3-4EA5-AC7C-87FF38507DC5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5C1EFC43-E09F-4D22-B160-05C4DFC81BCB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="duck_maxed_loop" ID="{3A6592D7-B0D8-4112-901F-D5320EA35EC9}" ShortID="488042774">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5C1EFC43-E09F-4D22-B160-05C4DFC81BCB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="duck_maxed_loop" ID="{943F2DE0-65ED-4CA4-8A89-337563B80A68}" ShortID="432512304">
+											<Language>SFX</Language>
+											<AudioFile>duck_maxed_loop.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{7BF33D8D-F1A1-4C12-885A-6F42CF888F5B}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{EF00C021-15C8-4289-BB7D-9F4076D4B383}">
+											<ClipList>
+												<MusicClip Name="duck_maxed_loop" ID="{AFC009B8-1F7C-4D48-97BD-BDEA79594740}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="60000"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="duck_maxed_loop" ID="{943F2DE0-65ED-4CA4-8A89-337563B80A68}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{4C601921-8204-4519-811C-19B17ADB9938}"/>
+								<MusicCue Name="Exit Cue" ID="{C8DDCD76-40F6-4F3E-B0B4-EACDA15CB6BA}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="60000"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{9C54898D-5835-4443-94DA-0B5F5561C3D7}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{6FAA80DB-D213-4FA0-A4D9-2B5E30A2C632}">
+									<PropertyList>
+										<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
+										<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
+									</PropertyList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{692A980C-D1C5-4B87-AE85-D3DBAC5A77AA}" ShortID="651324345">
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{1F5E8C8D-451D-4054-B071-94048D169CCB}" ShortID="91988327">
+									<PropertyList>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="duck_maxed_begin" ID="{BB3EB089-170F-44B2-B80A-22EF0232F3B0}"/>
+								</MusicPlaylistItem>
+								<MusicPlaylistItem Name="" ID="{F8C69B0C-85DB-4D01-AF82-4D935820EAE1}" ShortID="12447723">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="duck_maxed_loop" ID="{A2B7F675-F691-4EF9-9981-BFA45A5964C2}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
+					</Playlist>
+				</MusicPlaylistContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

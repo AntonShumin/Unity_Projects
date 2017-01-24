@@ -1,0 +1,15 @@
+Player_1
+UP = up arrow
+DOWN = down arrow
+LEFT = left arrow
+Right = right arrow
+BUTTON_1 = z
+BUTTON_2 = x
+
+Player_2
+Up = r
+DOWN = f
+LEFT = d
+RIGHT = g
+BUTTON_1 = i
+BUTTON_2 = k

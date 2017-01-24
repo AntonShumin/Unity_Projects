@@ -1,0 +1,53 @@
+Event	ID	Name			Wwise Object Path	Notes
+	145824316	wave_medium			\Default Work Unit\wave_medium	
+	202194903	music_play			\Default Work Unit\music_play	
+	431960276	wavebuildup_stop			\Default Work Unit\wavebuildup_stop	
+	445985469	die			\Default Work Unit\die	
+	729984210	amb_stop			\Default Work Unit\amb_stop	
+	979765101	win			\Default Work Unit\win	
+	1574979720	wavebuildup_start			\Default Work Unit\wavebuildup_start	
+	1697625845	fs_light			\Default Work Unit\fs_light	
+	2026842688	fs_heavy			\Default Work Unit\fs_heavy	
+	2280827611	kwak			\Default Work Unit\kwak	
+	2381502256	amb_play			\Default Work Unit\amb_play	
+	2491838135	wave_light			\Default Work Unit\wave_light	
+	3227181061	music_stop			\Default Work Unit\music_stop	
+	3854606522	tiger			\Default Work Unit\tiger	
+	4259068396	wave_strong			\Default Work Unit\wave_strong	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	70697998	win6	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\win6_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\win\win6		779940
+	109867281	DK_wave_light	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DK_wave_light_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\DK_wave_light		122944
+	131283075	win4	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\win4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\win\win4		640676
+	253488060	DCK_kwak_2	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_kwak_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Kwak\DCK_kwak_2		14144
+	296673133	win8	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\win8_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\win\win8		473560
+	340441207	DCK_die_2	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_die_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Die\DCK_die_2		74816
+	364106009	DCK_kwak_5	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_kwak_5_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Kwak\DCK_kwak_5		32576
+	376697483	DCK_die_1	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_die_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Die\DCK_die_1		54592
+	384519541	win2	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\win2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\win\win2		501412
+	394272330	win1	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\win1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\win\win1		501412
+	401559340	DK_amb	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DK_amb_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\DK_amb		4882496
+	405269119	DCK_kwak_6	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_kwak_6_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Kwak\DCK_kwak_6		20544
+	406401699	DCK_kwak_1	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_kwak_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Kwak\DCK_kwak_1		27200
+	419202065	DCK_kwak_9	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_kwak_9_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Kwak\DCK_kwak_9		16960
+	429461730	win3	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\win3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\win\win3		557120
+	429568624	win5	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\win5_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\win\win5		779940
+	432512304	duck_maxed_loop	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\duck_maxed_loop_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\LevelMusic\duck_maxed_loop\duck_maxed_loop		10584064
+	475669554	win10	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\win10_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\win\win10		557120
+	496530663	DK_fs_heavy	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DK_fs_heavy_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\DK_fs_heavy		56418
+	514329837	DK_wave_medium	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DK_wave_medium_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\DK_wave_medium		140864
+	516747014	DCK_tiger_3	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_tiger_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Tiger\DCK_tiger_3		63424
+	545666735	win9	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\win9_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\win\win9		640676
+	725323681	win7	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\win7_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\2D\win\win7		696380
+	787905703	DK_wave_strong	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DK_wave_strong_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\DK_wave_strong		277568
+	807228184	DK_wavebuildup	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DK_wavebuildup_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\DK_wavebuildup		895040
+	828365205	DK_fs_light	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DK_fs_light_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\DK_fs_light		53696
+	829779709	DCK_kwak_7	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_kwak_7_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Kwak\DCK_kwak_7		35392
+	839582366	duck_maxed_begin	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\duck_maxed_begin_4B8CC0C5.wem		\Interactive Music Hierarchy\Default Work Unit\LevelMusic\duck_maxed_begin\duck_maxed_begin		16943428
+	876111251	DCK_tiger_1	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_tiger_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Tiger\DCK_tiger_1		66368
+	935447075	DCK_tiger_2	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_tiger_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Tiger\DCK_tiger_2		87616
+	962223721	DCK_kwak_8	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_kwak_8_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Kwak\DCK_kwak_8		27200
+	1001488266	DCK_kwak_10	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_kwak_10_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Kwak\DCK_kwak_10		30784
+	1006743345	DCK_kwak_4	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_kwak_4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Kwak\DCK_kwak_4		24896
+	1054018179	DCK_kwak_3	C:\Users\MARTINEZ\Documents\SumoDucks\SumoDucks_Unity\SumoDucks_Unity_WwiseProject\.cache\Windows\SFX\DCK_kwak_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\3D\Kwak\DCK_kwak_3		25664
+

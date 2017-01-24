@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{80F9ADB1-284E-444E-AD84-8E05BFE4EE2F}" SchemaVersion="75">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{80F9ADB1-284E-444E-AD84-8E05BFE4EE2F}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{9A6137C6-6C02-4810-B165-EE464599E44E}">
+					<ObjectInclusionList>
+						<ObjectRef Name="amb_stop" ID="{FDE81998-23CF-41D5-9455-B6A3A456722F}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="kwak" ID="{330E3A8A-6446-41D6-A512-CCA1401C6E4D}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="fs_heavy" ID="{5E363926-27A2-4203-BA30-BB6ED7BBDF7F}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="music_play" ID="{548CCDCA-153F-4240-92BB-9E1FAD264007}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="music_stop" ID="{A2C73110-0529-4343-8886-0E85827BDCE2}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="wave_light" ID="{582EBF3B-D19B-43E2-83B0-E167FB9D9FEF}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="fs_light" ID="{9E06D56F-8500-44EC-9560-5212506C7F0B}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="tiger" ID="{4437D545-E812-4748-BA7E-BCFAC07BF930}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="wave_strong" ID="{24836488-8488-47E0-89E8-15792C82F7C4}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="wavebuildup_start" ID="{43F5CA7C-6AAC-47F7-9100-317DD17E4E59}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="amb_play" ID="{2791076E-10B5-4892-BA13-7169A7411D7C}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="win" ID="{12C7FB0D-A0CB-4928-9516-46BAC71BDB9D}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="die" ID="{5B80B4AC-FFBE-494A-916F-DD92FF42D300}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="wavebuildup_stop" ID="{B8A111DC-D2DF-4998-86FD-39D0745843BD}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="wave_medium" ID="{DAE44BF1-F725-4B97-AD30-B086400CCFE7}" WorkUnitID="{D4744871-ED80-4076-9C50-36151F24F118}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>
