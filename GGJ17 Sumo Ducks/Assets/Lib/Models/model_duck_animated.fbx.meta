@@ -1,34 +1,64 @@
 fileFormatVersion: 2
-guid: 03bd42f54bf299443a5549c70da7245c
-timeCreated: 1485208528
+guid: 6872953eb4e22e646a8b53481e253de9
+timeCreated: 1485466283
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: TankChassis
-    100004: TankRenderers
-    100006: TankTracksLeft
-    100008: TankTracksRight
-    100010: TankTurret
-    400000: //RootNode
-    400002: TankChassis
-    400004: TankRenderers
-    400006: TankTracksLeft
-    400008: TankTracksRight
-    400010: TankTurret
-    2300000: TankChassis
-    2300002: TankTracksLeft
-    2300004: TankTracksRight
-    2300006: TankTurret
-    3300000: TankChassis
-    3300002: TankTracksLeft
-    3300004: TankTracksRight
-    3300006: TankTurret
-    4300000: TankTurret
-    4300002: TankTracksLeft
-    4300004: TankTracksRight
-    4300006: TankChassis
+    100000: duck2
+    100002: //RootNode
+    100004: joint1
+    100006: joint10
+    100008: joint11
+    100010: joint12
+    100012: joint13
+    100014: joint14
+    100016: joint15
+    100018: joint17
+    100020: joint18
+    100022: joint2
+    100024: joint3
+    100026: joint4
+    100028: joint5
+    100030: joint6
+    100032: joint7
+    100034: joint8
+    100036: joint9
+    100038: pCube1
+    100040: pCube2
+    100042: pCube3
+    100044: transform1
+    100046: transform2
+    100048: transform3
+    400000: duck2
+    400002: //RootNode
+    400004: joint1
+    400006: joint10
+    400008: joint11
+    400010: joint12
+    400012: joint13
+    400014: joint14
+    400016: joint15
+    400018: joint17
+    400020: joint18
+    400022: joint2
+    400024: joint3
+    400026: joint4
+    400028: joint5
+    400030: joint6
+    400032: joint7
+    400034: joint8
+    400036: joint9
+    400038: pCube1
+    400040: pCube2
+    400042: pCube3
+    400044: transform1
+    400046: transform2
+    400048: transform3
+    4300000: pCube3
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: pCube3
   materials:
     importMaterials: 1
     materialName: 0
@@ -91,7 +121,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

@@ -15,5 +15,8 @@ public class script_manager_duck : MonoBehaviour {
     [HideInInspector]
     public int m_Wins;
 
+    private script_movement m_script_movement;
+    private Collider m_collider;
+    private Rigidbody m_rigidbody;
 
 }
