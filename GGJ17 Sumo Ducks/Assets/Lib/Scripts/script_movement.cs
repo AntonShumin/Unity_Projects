@@ -85,6 +85,10 @@ public class script_movement : MonoBehaviour {
     {
         if(col.gameObject.tag == "Player" && m_push_enabled)
         {
+            // if difference_vector and velocity have posite sign, set difference vector xyz to 0
+            // add minimum force (if abs < 300 000 then *4)
+
+
             //Get attack vector
             Vector3 pos_target = col.transform.position;
             Vector3 pos_origin = transform.position;
@@ -92,16 +96,23 @@ public class script_movement : MonoBehaviour {
             difference_vector.x = Mathf.Abs(difference_vector.x);
             difference_vector.y = Mathf.Abs(difference_vector.y);
             difference_vector.z = Mathf.Abs(difference_vector.z);
-            Debug.Log("difference is " + difference_vector);
+            //Debug.Log("difference is " + difference_vector);
 
+            //calculate force
             Rigidbody rigid = col.GetComponent<Rigidbody>();
-            Vector3 force = Vector3.Scale(Vector3.Normalize(m_Last_Velocity),difference_vector)  * 8000000;
+            Vector3 force = Vector3.Scale(m_Last_Velocity,difference_vector)  * 200000;
 
+            //push 
             rigid.velocity = Vector3.zero;
+            if (Mathf.Abs(force.x) < 2000000) force.x *= 3;
+            if (Mathf.Abs(force.z) < 2000000) force.z *= 3;
             rigid.AddForce(force);
+            Debug.Log("force is " + force + " original force is " + Vector3.Normalize(m_Last_Velocity) * 200000);
+
+            //timeout push
             m_push_enabled = false;
             StartCoroutine(resetPush());
-            Debug.Log("force is " + force + " original force is " + Vector3.Normalize(m_Last_Velocity) * 1000000);
+            
 
             //trigger oponent push
             col.GetComponent<script_movement>().OnTriggerEnter(gameObject.GetComponent<Collider>());
