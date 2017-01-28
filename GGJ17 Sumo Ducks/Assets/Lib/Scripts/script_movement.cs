@@ -50,6 +50,13 @@ public class script_movement : MonoBehaviour {
         m_MovementVector.z = Input.GetAxis(m_VerticalAxisName);
         m_MovementVector.y = 0;
 
+        if (m_PlayerNumber == 1)
+        {
+            Vector3 velocity = GetComponent<Rigidbody>().velocity;
+            velocity.y = 0f;
+            float speed = velocity.magnitude;
+            Debug.Log(speed);
+        }
     }
 
 
