@@ -47,8 +47,12 @@ public class script_manager_duck{
 
     public void Reset()
     {
+        //reset position
         m_Instance.transform.position = m_SpownPoint.position;
         m_Instance.transform.rotation = m_SpownPoint.rotation;
+
+        //reset velocity 
+        m_Instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
 }

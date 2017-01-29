@@ -5,7 +5,8 @@ using UnityEngine;
 public class script_movement : MonoBehaviour {
 
     public int m_PlayerNumber = 1;
-    public float m_Speed = 12f;
+    public float m_Speed;
+    public float m_Speed_Airborm;
     public float m_TurnSpeed = 180f;
     public bool m_push_enabled = true;
 
@@ -14,6 +15,8 @@ public class script_movement : MonoBehaviour {
     private Rigidbody m_Rigidbody;
     private Vector3 m_MovementVector;
     private Vector3 m_Last_Velocity;
+    private bool m_airborn;
+    private Vector3 m_raycast_offset = new Vector3(0,2,0);
     
 
     private float m_OriginalPitch;
@@ -55,6 +58,8 @@ public class script_movement : MonoBehaviour {
         Vector3 velocity = GetComponent<Rigidbody>().velocity;
         velocity.y = 0f;
         m_Last_Velocity = velocity;
+
+        Jump();
     }
 
 
@@ -71,8 +76,15 @@ public class script_movement : MonoBehaviour {
 
     private void Move()
     {
+        if(transform.position.y > 1)
+        {
+            m_Rigidbody.AddForce(m_MovementVector * m_Speed_Airborm);
+        } else
+        {
+            m_Rigidbody.AddForce(m_MovementVector * m_Speed);
+        }
+        
 
-        m_Rigidbody.AddForce(m_MovementVector * m_Speed);
     }
 
     private void Turn()
@@ -97,6 +109,7 @@ public class script_movement : MonoBehaviour {
             difference_vector.y = Mathf.Abs(difference_vector.y);
             difference_vector.z = Mathf.Abs(difference_vector.z);
             //Debug.Log("difference is " + difference_vector);
+
 
             //calculate force
             Rigidbody rigid = col.GetComponent<Rigidbody>();
@@ -125,6 +138,40 @@ public class script_movement : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         m_push_enabled = true;
     }
+
+    private void Jump()
+    {
+        //Grounded detection
+        
+
+        if ( Input.GetKeyDown(KeyCode.RightShift) )
+        {
+            Vector3 jump_velicity;
+            if (Physics.Raycast(transform.position + m_raycast_offset, Vector3.down, 3))
+            {
+                //half velocity 
+                m_Rigidbody.velocity /= 2;
+
+                //add jump force 
+                jump_velicity = new Vector3(0, 7000000f, 0);
+                m_Rigidbody.AddForce(jump_velicity);
+
+                //set vars
+                m_airborn = true;
+            } else if  (m_airborn)
+            {
+                //add dive force 
+                jump_velicity = new Vector3(0, -7000000f, 0);
+                m_Rigidbody.AddForce(jump_velicity);
+                m_airborn = false;
+            }
+
+            
+
+        }
+    }
+
+   
 
 
 }

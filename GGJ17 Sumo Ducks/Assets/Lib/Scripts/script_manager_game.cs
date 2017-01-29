@@ -26,6 +26,18 @@ public class script_manager_game : MonoBehaviour {
         Set_Camera_Targets();
     }
 
+
+    void Update()
+    {
+        if (Input.GetKeyDown("return") || Input.GetKeyDown("enter"))
+        {
+            Round_Reset();
+        }
+    }
+
+
+
+
     private void Spawn_All_Ducks()
     {
         for (int i = 0; i < m_script_ducks.Length; i++ )
@@ -51,5 +63,18 @@ public class script_manager_game : MonoBehaviour {
         m_script_camera.m_Targets = targets;
 
     }
+
+    private void Round_Reset()
+    {
+        foreach( script_manager_duck script in m_script_ducks )
+        {
+            //reset position
+            script.Reset();
+
+
+        }
+    }
+
+
 
 }
