@@ -12,6 +12,8 @@ public class script_movement : MonoBehaviour {
 
     private string m_HorizontalAxisName;
     private string m_VerticalAxisName;
+    private string m_jump_name;
+    private string m_fire_name;
     private Rigidbody m_Rigidbody;
     private Vector3 m_MovementVector;
     private Vector3 m_Last_Velocity;
@@ -45,6 +47,8 @@ public class script_movement : MonoBehaviour {
     {
         m_HorizontalAxisName = "Horizontal_" + m_PlayerNumber;
         m_VerticalAxisName = "Vertical_" + m_PlayerNumber;
+        m_jump_name = "Jump_" + m_PlayerNumber;
+        m_fire_name = "Fire_" + m_PlayerNumber;
 
     }
 
@@ -113,14 +117,14 @@ public class script_movement : MonoBehaviour {
 
             //calculate force
             Rigidbody rigid = col.GetComponent<Rigidbody>();
-            Vector3 force = Vector3.Scale(m_Last_Velocity,difference_vector)  * 200000;
+            Vector3 force = Vector3.Scale(m_Last_Velocity,difference_vector)  * 300000;
 
             //push 
             rigid.velocity = Vector3.zero;
             if (Mathf.Abs(force.x) < 2000000) force.x *= 3;
             if (Mathf.Abs(force.z) < 2000000) force.z *= 3;
             rigid.AddForce(force);
-            Debug.Log("force is " + force + " original force is " + Vector3.Normalize(m_Last_Velocity) * 200000);
+            Debug.Log("force is " + force + " original force is " + Vector3.Normalize(m_Last_Velocity) * 300000);
 
             //timeout push
             m_push_enabled = false;
@@ -144,31 +148,29 @@ public class script_movement : MonoBehaviour {
         //Grounded detection
         
 
-        if ( Input.GetKeyDown(KeyCode.RightShift) )
+        if ( Input.GetButtonDown(m_jump_name) )
         {
-            Vector3 jump_velicity;
             if (Physics.Raycast(transform.position + m_raycast_offset, Vector3.down, 3))
             {
                 //half velocity 
                 m_Rigidbody.velocity /= 2;
 
                 //add jump force 
-                jump_velicity = new Vector3(0, 7000000f, 0);
-                m_Rigidbody.AddForce(jump_velicity);
+                m_Rigidbody.AddForce(new Vector3(0, 7000000f, 0));
 
                 //set vars
                 m_airborn = true;
-            } else if  (m_airborn)
+            } else if (transform.position.y > 3 && m_airborn)
             {
                 //add dive force 
-                jump_velicity = new Vector3(0, -7000000f, 0);
-                m_Rigidbody.AddForce(jump_velicity);
+                m_Rigidbody.AddForce(new Vector3(0, -9000000f, 0));
                 m_airborn = false;
             }
 
             
 
-        }
+        } 
+       
     }
 
    
