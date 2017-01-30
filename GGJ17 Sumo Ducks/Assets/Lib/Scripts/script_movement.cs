@@ -19,6 +19,7 @@ public class script_movement : MonoBehaviour {
     private Vector3 m_Last_Velocity;
     private bool m_airborn;
     private Vector3 m_raycast_offset = new Vector3(0,2,0);
+    private script_manager_collector m_object_collector;
     
 
     private float m_OriginalPitch;
@@ -49,6 +50,7 @@ public class script_movement : MonoBehaviour {
         m_VerticalAxisName = "Vertical_" + m_PlayerNumber;
         m_jump_name = "Jump_" + m_PlayerNumber;
         m_fire_name = "Fire_" + m_PlayerNumber;
+        m_object_collector = GameObject.Find("Object Collector").GetComponent<script_manager_collector>();
 
     }
 
@@ -64,6 +66,7 @@ public class script_movement : MonoBehaviour {
         m_Last_Velocity = velocity;
 
         Jump();
+        Fire();
     }
 
 
@@ -167,11 +170,24 @@ public class script_movement : MonoBehaviour {
                 m_airborn = false;
             }
 
-            
-
         } 
        
     }
+
+    private void Fire()
+    {
+        if( Input.GetButtonDown(m_fire_name) )
+        {
+            Debug.Log("Fire");
+            GameObject missile = m_object_collector.Get_Missile();
+            missile.SetActive(true);
+            missile.GetComponent<script_missile>().Fire(m_PlayerNumber, transform.position,transform.forward);
+        }
+    }
+
+
+
+
 
    
 
