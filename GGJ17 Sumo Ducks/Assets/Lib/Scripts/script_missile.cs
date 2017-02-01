@@ -11,6 +11,7 @@ public class script_missile : MonoBehaviour {
     private Vector3 m_Origin;
     private Vector3 m_Direction;
     private bool m_active = false;
+    private List<GameObject> m_target_list = new List<GameObject>();
 
 
 
@@ -33,11 +34,39 @@ public class script_missile : MonoBehaviour {
         
     }
 
+    private void OnEnable ()
+    {
+        m_target_list.Clear();
+    }
+
     IEnumerator Kill_Missile()
     {
         yield return new WaitForSeconds(1);
         m_active = false;
         m_object_collector.Return_Missile(gameObject);
+    }
+
+    public void OnTriggerEnter (Collider col)
+    {
+        GameObject target = col.gameObject;
+        if (col.gameObject.tag == "Player" )
+        {
+            //has a movement script
+            if(target.GetComponent<script_movement>() != null)
+            {
+                //if a different player
+                if(target.GetComponent<script_movement>().m_PlayerNumber != m_Player_Number )
+                {
+                    if(!m_target_list.Contains(target))
+                    {
+                        m_target_list.Add(target);
+                        Debug.Log(col.name);
+                    }
+                    
+                    
+                }
+            }
+        }
     }
 
 
