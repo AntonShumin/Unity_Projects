@@ -60,13 +60,20 @@ public class script_missile : MonoBehaviour {
                     if(!m_target_list.Contains(target))
                     {
                         m_target_list.Add(target);
-                        Debug.Log(col.name);
+                        
+                        Target_Push(col.gameObject);
                     }
                     
                     
                 }
             }
         }
+    }
+
+    private void Target_Push(GameObject target)
+    {
+        Vector3 force = m_Direction * 15000000;
+        target.GetComponent<Rigidbody>().AddForce(force);
     }
 
 

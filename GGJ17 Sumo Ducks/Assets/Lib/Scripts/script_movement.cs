@@ -9,6 +9,8 @@ public class script_movement : MonoBehaviour {
     public float m_Speed_Airborm;
     public float m_TurnSpeed = 180f;
     public bool m_push_enabled = true;
+ 
+    public script_wave m_script_wave;
 
     private string m_HorizontalAxisName;
     private string m_VerticalAxisName;
@@ -20,6 +22,7 @@ public class script_movement : MonoBehaviour {
     private bool m_airborn;
     private Vector3 m_raycast_offset = new Vector3(0,2,0);
     private script_manager_collector m_object_collector;
+    
     
 
     private float m_OriginalPitch;
@@ -36,6 +39,7 @@ public class script_movement : MonoBehaviour {
         m_MovementVector.x = 0;
         m_MovementVector.z = 0;
     }
+
 
 
     private void OnDisable()
@@ -127,7 +131,7 @@ public class script_movement : MonoBehaviour {
             if (Mathf.Abs(force.x) < 2000000) force.x *= 3;
             if (Mathf.Abs(force.z) < 2000000) force.z *= 3;
             rigid.AddForce(force);
-            Debug.Log("force is " + force + " original force is " + Vector3.Normalize(m_Last_Velocity) * 300000);
+            //Debug.Log("force is " + force + " original force is " + Vector3.Normalize(m_Last_Velocity) * 300000);
 
             //timeout push
             m_push_enabled = false;
@@ -163,6 +167,11 @@ public class script_movement : MonoBehaviour {
 
                 //set vars
                 m_airborn = true;
+
+                //jump wave 
+                m_script_wave.gameObject.SetActive(true);
+                m_script_wave.Start_Wave(m_PlayerNumber, transform.position);
+
             } else if (transform.position.y > 3 && m_airborn)
             {
                 //add dive force 
@@ -178,7 +187,7 @@ public class script_movement : MonoBehaviour {
     {
         if( Input.GetButtonDown(m_fire_name) )
         {
-            Debug.Log("Fire");
+            //Debug.Log("Fire");
             GameObject missile = m_object_collector.Get_Missile();
             missile.SetActive(true);
             missile.GetComponent<script_missile>().Fire(m_PlayerNumber, transform.position,transform.forward);

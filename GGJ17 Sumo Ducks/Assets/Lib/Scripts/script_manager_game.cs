@@ -9,6 +9,7 @@ public class script_manager_game : MonoBehaviour {
     public float m_end_delay;
     public script_camera m_script_camera;
     public GameObject m_prefab_duck;
+    public GameObject m_prefab_wave;
     public script_manager_duck[] m_script_ducks;
 
     private int m_rounds_current;
@@ -43,8 +44,10 @@ public class script_manager_game : MonoBehaviour {
         for (int i = 0; i < m_script_ducks.Length; i++ )
         {
             m_script_ducks[i].m_Instance = Instantiate(m_prefab_duck, m_script_ducks[i].m_SpownPoint.position, m_script_ducks[i].m_SpownPoint.rotation) as GameObject;
+            m_script_ducks[i].m_Instance.GetComponent<script_movement>().m_script_wave = Instantiate(m_prefab_wave).GetComponent<script_wave>();
             m_script_ducks[i].m_PlayerNumber = i + 1;
-            m_script_ducks[i].Setup();    
+            m_script_ducks[i].Setup();
+            
         } 
     }
 

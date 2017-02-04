@@ -24,6 +24,7 @@ public class script_manager_duck{
         //Scripts
         m_script_movement = m_Instance.GetComponent<script_movement>();
 
+
         //Vars
         m_script_movement.m_PlayerNumber = m_PlayerNumber;
 
