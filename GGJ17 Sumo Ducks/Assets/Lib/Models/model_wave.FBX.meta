@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: df28d663aede9504d8c687616d091165
-timeCreated: 1486236674
+guid: 8fee60168d6a0cf408fac3bcf493ed5f
+timeCreated: 1486251796
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -10,7 +10,6 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Torus001
-    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -73,7 +72,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
