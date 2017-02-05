@@ -24,6 +24,7 @@ public class script_manager_duck{
 
         //Scripts
         m_script_movement = m_Instance.GetComponent<script_movement>();
+        m_rigidbody = m_Instance.GetComponent<Rigidbody>();
 
 
         //Vars
@@ -45,6 +46,7 @@ public class script_manager_duck{
     {
         //m_script_movement.enabled = true;
         m_script_movement.m_movement_active = true;
+
     }
 
     public void DisableCamera()
@@ -71,6 +73,15 @@ public class script_manager_duck{
         //enable movement script
         EnableControl();
         EnableCamera();
+    }
+
+    public void OutOfBounds_Push()
+    {
+        if(m_rigidbody.velocity.magnitude < 30 )
+        {
+            Vector3 direction = Vector3.Normalize(m_Instance.transform.position);
+
+        }
     }
 
 }

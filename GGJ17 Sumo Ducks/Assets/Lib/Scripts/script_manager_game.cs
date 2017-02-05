@@ -36,6 +36,7 @@ public class script_manager_game : MonoBehaviour {
         if (Input.GetKeyDown("return") || Input.GetKeyDown("enter"))
         {
             Round_Reset();
+            StopAllCoroutines();
         }
     }
 
@@ -76,9 +77,8 @@ public class script_manager_game : MonoBehaviour {
         {
             //reset position
             script.Reset();
-
-
         }
+        m_game_state = 1;
     }
 
 
@@ -87,21 +87,24 @@ public class script_manager_game : MonoBehaviour {
         script_manager_duck duck_script = m_script_ducks[player_number - 1];
         if(duck_script.m_script_movement.m_movement_active)
         {
+            duck_script.OutOfBounds_Push();
             Block_Player_Movement();
             m_game_state = 2;
             StartCoroutine(ZoomWinner(duck_script));
-            Debug.Log("check 1");
+
         }
 
     }
 
     private IEnumerator ZoomWinner(script_manager_duck duck_script)
     {
-        Debug.Log("check 2");
+
         yield return new WaitForSeconds(1.5f);
         duck_script.DisableCamera();
         m_game_state = 3;
-        Debug.Log("check 3");
+
+        yield return new WaitForSeconds(2f);
+        Round_Reset();
     }
 
     private void Block_Player_Movement()

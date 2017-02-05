@@ -74,8 +74,12 @@ public class script_movement : MonoBehaviour {
         velocity.y = 0f;
         m_Last_Velocity = velocity;
 
-        Jump();
-        Fire();
+        if(m_movement_active)
+        {
+            Jump();
+            Fire();
+        }
+        
 
         if (m_airborn) Airborn_Track();
     }
@@ -84,10 +88,13 @@ public class script_movement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        Move();
-        if (m_MovementVector.magnitude > 0)
+        if (m_movement_active)
         {
-            Turn();
+            Move();
+            if (m_MovementVector.magnitude > 0)
+            {
+                Turn();
+            }
         }
         
     }
