@@ -37,15 +37,27 @@ public class script_manager_duck{
 
     public void DisableControl()
     {
-        m_script_movement.enabled = false;
-
-  
+        //m_script_movement.enabled = false;
+        m_script_movement.m_movement_active = false;
     }
 
     public void EnableControl()
     {
-        m_script_movement.enabled = true;
+        //m_script_movement.enabled = true;
+        m_script_movement.m_movement_active = true;
     }
+
+    public void DisableCamera()
+    {
+        m_script_movement.m_camera_active = false;
+    }
+
+    public void EnableCamera()
+    {
+        m_script_movement.m_camera_active = true;
+    }
+
+    
 
     public void Reset()
     {
@@ -55,6 +67,10 @@ public class script_manager_duck{
 
         //reset velocity 
         m_Instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        //enable movement script
+        EnableControl();
+        EnableCamera();
     }
 
 }

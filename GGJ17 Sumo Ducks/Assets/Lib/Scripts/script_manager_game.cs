@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class script_manager_game : MonoBehaviour {
 
+    [HideInInspector]
+    public int m_game_state = 0; //0 loading 1 playing // 2 exit bounds
+
     public int m_rounds_total;
     public float m_start_delay;
     public float m_end_delay;
@@ -46,9 +49,9 @@ public class script_manager_game : MonoBehaviour {
             m_script_ducks[i].m_Instance = Instantiate(m_prefab_duck, m_script_ducks[i].m_SpownPoint.position, m_script_ducks[i].m_SpownPoint.rotation) as GameObject;
             m_script_ducks[i].m_Instance.GetComponent<script_movement>().m_script_wave = Instantiate(m_prefab_wave).GetComponent<script_wave>();
             m_script_ducks[i].m_PlayerNumber = i + 1;
-            m_script_ducks[i].Setup();
-            
-        } 
+            m_script_ducks[i].Setup(); 
+        }
+        Round_Reset();
     }
 
     private void Set_Camera_Targets()
@@ -82,6 +85,31 @@ public class script_manager_game : MonoBehaviour {
     public void Exit_Bounds(int player_number)
     {
         script_manager_duck duck_script = m_script_ducks[player_number - 1];
+        if(duck_script.m_script_movement.m_movement_active)
+        {
+            Block_Player_Movement();
+            m_game_state = 2;
+            StartCoroutine(ZoomWinner(duck_script));
+            Debug.Log("check 1");
+        }
+
+    }
+
+    private IEnumerator ZoomWinner(script_manager_duck duck_script)
+    {
+        Debug.Log("check 2");
+        yield return new WaitForSeconds(1.5f);
+        duck_script.DisableCamera();
+        m_game_state = 3;
+        Debug.Log("check 3");
+    }
+
+    private void Block_Player_Movement()
+    {
+        foreach (script_manager_duck script in m_script_ducks)
+        {
+            script.DisableControl();
+        }
     }
 
 

@@ -45,7 +45,7 @@ public class script_camera : MonoBehaviour {
 
         for (int i = 0; i < m_Targets.Length; i++)
         {
-            if (!m_Targets[i].gameObject.activeSelf)
+            if (!m_Targets[i].GetComponent<script_movement>().m_camera_active)
                 continue;
 
             averagePos += m_Targets[i].position;
@@ -76,7 +76,7 @@ public class script_camera : MonoBehaviour {
 
         for (int i = 0; i < m_Targets.Length; i++)
         {
-            if (!m_Targets[i].gameObject.activeSelf)
+            if (!m_Targets[i].GetComponent<script_movement>().m_camera_active)
                 continue;
 
             Vector3 targetLocalPos = transform.InverseTransformPoint(m_Targets[i].position);

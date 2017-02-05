@@ -8,8 +8,12 @@ public class script_movement : MonoBehaviour {
     public float m_Speed;
     public float m_Speed_Airborm;
     public float m_TurnSpeed = 180f;
+
+    //allow interaction
     public bool m_push_enabled = true;
- 
+    public bool m_movement_active = true;
+    public bool m_camera_active = true;
+
     public script_wave m_script_wave;
 
     private string m_HorizontalAxisName;
