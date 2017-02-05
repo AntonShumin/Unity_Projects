@@ -79,5 +79,11 @@ public class script_manager_game : MonoBehaviour {
     }
 
 
+    public void Exit_Bounds(int player_number)
+    {
+        script_manager_duck duck_script = m_script_ducks[player_number - 1];
+    }
+
+
 
 }

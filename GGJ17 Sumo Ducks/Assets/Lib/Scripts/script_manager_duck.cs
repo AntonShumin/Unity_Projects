@@ -12,9 +12,10 @@ public class script_manager_duck{
     [HideInInspector]    public string m_ColoredPlayerText;
     [HideInInspector]    public GameObject m_Instance;
     [HideInInspector]    public int m_Wins;
+    [HideInInspector]    public script_movement m_script_movement;
 
     private GameObject m_canvas_element;
-    private script_movement m_script_movement;
+    
     private Collider m_collider;
     private Rigidbody m_rigidbody;
 

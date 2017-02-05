@@ -20,6 +20,7 @@ public class script_movement : MonoBehaviour {
     private Vector3 m_MovementVector;
     private Vector3 m_Last_Velocity;
     private bool m_airborn;
+    private int m_airborn_state = 0;
     private Vector3 m_raycast_offset = new Vector3(0,2,0);
     private script_manager_collector m_object_collector;
     
@@ -65,12 +66,14 @@ public class script_movement : MonoBehaviour {
         m_MovementVector.z = Input.GetAxis(m_VerticalAxisName);
         m_MovementVector.y = 0;
 
-        Vector3 velocity = GetComponent<Rigidbody>().velocity;
+        Vector3 velocity = m_Rigidbody.velocity;
         velocity.y = 0f;
         m_Last_Velocity = velocity;
 
         Jump();
         Fire();
+
+        if (m_airborn) Airborn_Track();
     }
 
 
@@ -87,7 +90,7 @@ public class script_movement : MonoBehaviour {
 
     private void Move()
     {
-        if(transform.position.y > 1)
+        if(m_airborn)
         {
             m_Rigidbody.AddForce(m_MovementVector * m_Speed_Airborm);
         } else
@@ -169,14 +172,13 @@ public class script_movement : MonoBehaviour {
                 m_airborn = true;
 
                 //jump wave 
-                m_script_wave.gameObject.SetActive(true);
-                m_script_wave.Start_Wave(m_PlayerNumber, transform.position);
+                m_airborn_state = 1;
 
             } else if (transform.position.y > 3 && m_airborn)
             {
                 //add dive force 
                 m_Rigidbody.AddForce(new Vector3(0, -9000000f, 0));
-                m_airborn = false;
+                m_airborn_state = 10;
             }
 
         } 
@@ -194,11 +196,52 @@ public class script_movement : MonoBehaviour {
         }
     }
 
+    private void Airborn_Track()
+    {
+        float velocity = m_Rigidbody.velocity.y;
+        Debug.Log(velocity);
+        switch (m_airborn_state)
+        {
+            
+            case 10: //jump down
+                if (velocity >= 0 && transform.position.y <= 0)
+                {
+                    Debug.Log("make wave");
+                    m_script_wave.gameObject.SetActive(true);
+                    m_script_wave.Start_Wave(m_PlayerNumber, transform.position);
+                    m_airborn_state = 0;
+                    m_airborn = false;
+                }
+                break;
+            case 1: //start jump
+                if(velocity > 10) //detect flying
+                {
+                    m_airborn_state = 2;
+                }
+                break;
+            case 2: //flying
+                if(velocity < 0) //falling
+                {
+                    m_airborn_state = 3;
+                }
+                break;
+            case 3: //land
+                if(velocity >= 0 ) //land
+                {
+                    m_airborn_state = 0;
+                    m_airborn = false;
+                    Debug.Log("land");
+                }
+                break;
+        }
+    }
 
 
 
 
-   
+
+
+
 
 
 }

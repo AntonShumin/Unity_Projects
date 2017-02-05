@@ -31,7 +31,7 @@ public class script_wave : MonoBehaviour {
     public void Collider_Event(Collider col)
     {
         GameObject target = col.gameObject;
-        if (col.gameObject.tag == "Player")
+        if (target.tag == "Player")
         {
             //has a movement script
             if (target.GetComponent<script_movement>() != null)
