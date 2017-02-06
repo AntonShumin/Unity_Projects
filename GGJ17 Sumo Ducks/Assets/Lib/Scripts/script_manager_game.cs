@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class script_manager_game : MonoBehaviour {
 
@@ -15,16 +16,14 @@ public class script_manager_game : MonoBehaviour {
     public GameObject m_prefab_wave;
     public script_manager_duck[] m_script_ducks;
 
-    private int m_rounds_current;
-    private WaitForSeconds m_StartWait;
-    private WaitForSeconds m_EndWait;
+    private int m_rounds_current = 0;
     private script_manager_duck m_RoundWinner;
     private script_manager_duck m_GameWinner;
+    private script_manager_collector m_ObjectCollector;
 
     private void Start()
     {
-        m_StartWait = new WaitForSeconds(m_start_delay);
-        m_EndWait = new WaitForSeconds(m_end_delay);
+        m_ObjectCollector = GameObject.Find("Object Collector").GetComponent<script_manager_collector>();
 
         Spawn_All_Ducks();
         Set_Camera_Targets();
@@ -35,11 +34,10 @@ public class script_manager_game : MonoBehaviour {
     {
         if (Input.GetKeyDown("return") || Input.GetKeyDown("enter"))
         {
-            Round_Reset();
             StopAllCoroutines();
+            Next_Round();
         }
     }
-
 
 
 
@@ -52,7 +50,7 @@ public class script_manager_game : MonoBehaviour {
             m_script_ducks[i].m_PlayerNumber = i + 1;
             m_script_ducks[i].Setup(); 
         }
-        Round_Reset();
+        Next_Round();
     }
 
     private void Set_Camera_Targets()
@@ -78,7 +76,6 @@ public class script_manager_game : MonoBehaviour {
             //reset position
             script.Reset();
         }
-        m_game_state = 1;
     }
 
 
@@ -104,7 +101,7 @@ public class script_manager_game : MonoBehaviour {
         m_game_state = 3;
 
         yield return new WaitForSeconds(2f);
-        Round_Reset();
+        Next_Round();
     }
 
     private void Block_Player_Movement()
@@ -113,6 +110,25 @@ public class script_manager_game : MonoBehaviour {
         {
             script.DisableControl();
         }
+    }
+
+    private void Next_Round()
+    {
+        Round_Reset();
+        m_game_state = 0;
+        m_rounds_current++;
+        string round_message = "Round " + m_rounds_current;
+        m_ObjectCollector.m_UI[0].GetComponent<Text>().text = round_message;
+        m_ObjectCollector.m_UI[0].SetActive(true);
+        StartCoroutine(Next_Round_Wait());
+    }
+
+    private IEnumerator Next_Round_Wait()
+    {
+        yield return new WaitForSeconds(2);
+        m_game_state = 1;
+        m_ObjectCollector.m_UI[0].SetActive(false);
+
     }
 
 

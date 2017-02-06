@@ -5,6 +5,7 @@ using UnityEngine;
 public class script_manager_collector : MonoBehaviour {
 
     public GameObject m_prefab_missile;
+    public GameObject[] m_UI;
 
     private List<GameObject> m_list_missiles_available = new List<GameObject>();
     private GameObject m_missile_parent;
