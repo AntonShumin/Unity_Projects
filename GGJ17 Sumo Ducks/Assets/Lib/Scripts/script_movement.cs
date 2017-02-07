@@ -210,14 +210,12 @@ public class script_movement : MonoBehaviour {
     private void Airborn_Track()
     {
         float velocity = m_Rigidbody.velocity.y;
-        Debug.Log(velocity);
         switch (m_airborn_state)
         {
             
             case 10: //jump down
                 if (velocity >= 0 && transform.position.y <= 0)
                 {
-                    Debug.Log("make wave");
                     m_script_wave.gameObject.SetActive(true);
                     m_script_wave.Start_Wave(m_PlayerNumber, transform.position);
                     m_airborn_state = 0;
@@ -241,7 +239,6 @@ public class script_movement : MonoBehaviour {
                 {
                     m_airborn_state = 0;
                     m_airborn = false;
-                    Debug.Log("land");
                 }
                 break;
         }

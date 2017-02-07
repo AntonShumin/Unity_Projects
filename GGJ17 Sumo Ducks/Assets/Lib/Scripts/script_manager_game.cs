@@ -96,12 +96,21 @@ public class script_manager_game : MonoBehaviour {
     private IEnumerator ZoomWinner(script_manager_duck duck_script)
     {
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         duck_script.DisableCamera();
         m_game_state = 3;
+        Show_Winner(Mathf.Abs(duck_script.m_PlayerNumber - 3));
 
         yield return new WaitForSeconds(2f);
+        m_ObjectCollector.m_UI[1].SetActive(false);
         Next_Round();
+    }
+
+    private void Show_Winner(int winner)
+    {
+        string round_message = m_script_ducks[winner-1].m_ColoredPlayerText  + " duck wins!";
+        m_ObjectCollector.m_UI[1].GetComponent<Text>().text = round_message;
+        m_ObjectCollector.m_UI[1].SetActive(true);
     }
 
     private void Block_Player_Movement()

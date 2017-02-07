@@ -7,12 +7,13 @@ public class script_manager_duck{
     public Color m_PlayerColor;
     public Transform m_SpownPoint;
     public Texture m_Texture;
+    public string m_Name;
 
     [HideInInspector]    public int m_PlayerNumber;
     [HideInInspector]    public string m_ColoredPlayerText;
     [HideInInspector]    public GameObject m_Instance;
     [HideInInspector]    public int m_Wins;
-    [HideInInspector]    public script_movement m_script_movement;
+    [HideInInspector]    public script_movement m_script_movement;    
 
     private GameObject m_canvas_element;
     
@@ -31,7 +32,7 @@ public class script_manager_duck{
         m_script_movement.m_PlayerNumber = m_PlayerNumber;
 
         //Colors
-        m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">PLAYER " + m_PlayerNumber + "</color>";
+        m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">"+ m_Name +  "</color>";
         m_Instance.GetComponentInChildren<Renderer>().material.SetTexture("_MainTex", m_Texture);
 
     }
@@ -80,7 +81,7 @@ public class script_manager_duck{
         if(m_rigidbody.velocity.magnitude < 30 )
         {
             Vector3 direction = Vector3.Normalize(m_Instance.transform.position);
-
+            m_rigidbody.AddForce(direction * 9000000);
         }
     }
 
