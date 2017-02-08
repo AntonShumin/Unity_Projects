@@ -60,7 +60,6 @@ public class script_manager_duck{
         m_script_movement.m_camera_active = true;
     }
 
-    
 
     public void Reset()
     {
@@ -78,8 +77,10 @@ public class script_manager_duck{
 
     public void OutOfBounds_Push()
     {
-        if(m_rigidbody.velocity.magnitude < 30 )
+        m_script_movement.m_animator.SetTrigger("flap_slow");
+        if (m_rigidbody.velocity.magnitude < 80 )
         {
+            
             Vector3 direction = Vector3.Normalize(m_Instance.transform.position);
             m_rigidbody.AddForce(direction * 9000000);
         }

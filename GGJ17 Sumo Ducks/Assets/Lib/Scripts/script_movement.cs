@@ -8,6 +8,7 @@ public class script_movement : MonoBehaviour {
     public float m_Speed;
     public float m_Speed_Airborm;
     public float m_TurnSpeed = 180f;
+    public Animator m_animator;
 
     //allow interaction
     public bool m_push_enabled = true;
@@ -29,12 +30,14 @@ public class script_movement : MonoBehaviour {
     private script_manager_collector m_object_collector;
     
     
+    
 
     private float m_OriginalPitch;
 
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+        m_animator = GetComponent<Animator>();
     }
 
 
@@ -145,6 +148,7 @@ public class script_movement : MonoBehaviour {
             if (Mathf.Abs(force.x) < 2000000) force.x *= 3;
             if (Mathf.Abs(force.z) < 2000000) force.z *= 3;
             rigid.AddForce(force);
+            m_animator.SetTrigger("flap");
             //Debug.Log("force is " + force + " original force is " + Vector3.Normalize(m_Last_Velocity) * 300000);
 
             //timeout push
@@ -188,6 +192,7 @@ public class script_movement : MonoBehaviour {
             } else if (transform.position.y > 3 && m_airborn)
             {
                 //add dive force 
+                m_animator.SetTrigger("flap");
                 m_Rigidbody.AddForce(new Vector3(0, -9000000f, 0));
                 m_airborn_state = 10;
             }
@@ -200,7 +205,7 @@ public class script_movement : MonoBehaviour {
     {
         if( Input.GetButtonDown(m_fire_name) )
         {
-            //Debug.Log("Fire");
+            m_animator.SetTrigger("flap");
             GameObject missile = m_object_collector.Get_Missile();
             missile.SetActive(true);
             missile.GetComponent<script_missile>().Fire(m_PlayerNumber, transform.position,transform.forward);
@@ -226,12 +231,14 @@ public class script_movement : MonoBehaviour {
                 if(velocity > 10) //detect flying
                 {
                     m_airborn_state = 2;
+                    m_animator.SetTrigger("flap_slow");
                 }
                 break;
             case 2: //flying
                 if(velocity < 0) //falling
                 {
                     m_airborn_state = 3;
+                    m_animator.SetTrigger("flap_slow");
                 }
                 break;
             case 3: //land

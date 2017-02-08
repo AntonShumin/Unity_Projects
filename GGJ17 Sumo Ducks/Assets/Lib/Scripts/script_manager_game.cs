@@ -108,7 +108,7 @@ public class script_manager_game : MonoBehaviour {
 
     private void Show_Winner(int winner)
     {
-        string round_message = m_script_ducks[winner-1].m_ColoredPlayerText  + " duck wins!";
+        string round_message = m_script_ducks[winner-1].m_ColoredPlayerText  + " duck scores!";
         m_ObjectCollector.m_UI[1].GetComponent<Text>().text = round_message;
         m_ObjectCollector.m_UI[1].SetActive(true);
     }
