@@ -24,9 +24,9 @@ public class script_manager_game : MonoBehaviour {
     private void Start()
     {
         m_ObjectCollector = GameObject.Find("Object Collector").GetComponent<script_manager_collector>();
-
         Spawn_All_Ducks();
         Set_Camera_Targets();
+        Start_Versus();
     }
 
 
@@ -35,8 +35,20 @@ public class script_manager_game : MonoBehaviour {
         if (Input.GetKeyDown("return") || Input.GetKeyDown("enter"))
         {
             StopAllCoroutines();
-            Next_Round();
+            //Next_Round();
         }
+    }
+
+    private void Start_Versus()
+    {
+        m_rounds_current = 0;
+        foreach(script_manager_duck duck in m_script_ducks)
+        {
+            duck.m_Lives = 3; 
+        }
+        Next_Round();
+        Update_Lives_UI();
+
     }
 
 
@@ -50,7 +62,6 @@ public class script_manager_game : MonoBehaviour {
             m_script_ducks[i].m_PlayerNumber = i + 1;
             m_script_ducks[i].Setup(); 
         }
-        Next_Round();
     }
 
     private void Set_Camera_Targets()
@@ -87,7 +98,15 @@ public class script_manager_game : MonoBehaviour {
             duck_script.OutOfBounds_Push();
             Block_Player_Movement();
             m_game_state = 2;
-            StartCoroutine(ZoomWinner(duck_script));
+            int lives_left = m_script_ducks[player_number - 1].Lose_Life();
+            Update_Lives_UI();
+            if(lives_left < 1)
+            {
+                End_Round(player_number);
+            } else
+            {
+                StartCoroutine(ZoomWinner(duck_script));
+            }
 
         }
 
@@ -123,10 +142,11 @@ public class script_manager_game : MonoBehaviour {
 
     private void Next_Round()
     {
+        Debug.Log("add");
         Round_Reset();
         m_game_state = 0;
         m_rounds_current++;
-        string round_message = "Round " + m_rounds_current;
+        string round_message = "Round <color=#ffa500ff>" + m_rounds_current + "</color>";
         m_ObjectCollector.m_UI[0].GetComponent<Text>().text = round_message;
         m_ObjectCollector.m_UI[0].SetActive(true);
         StartCoroutine(Next_Round_Wait());
@@ -138,6 +158,21 @@ public class script_manager_game : MonoBehaviour {
         m_game_state = 1;
         m_ObjectCollector.m_UI[0].SetActive(false);
 
+    }
+
+    private void End_Round(int loser)
+    {
+        Start_Versus();
+    }
+
+    private void Update_Lives_UI()
+    {
+
+        foreach (script_manager_duck script in m_script_ducks)
+        {
+            script.m_Score_Text.gameObject.SetActive(true);
+            script.m_Score_Text.text = script.Get_Lives();
+        }
     }
 
 

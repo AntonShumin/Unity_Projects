@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public class script_manager_duck{
@@ -8,11 +9,12 @@ public class script_manager_duck{
     public Transform m_SpownPoint;
     public Texture m_Texture;
     public string m_Name;
+    public Text m_Score_Text;
 
     [HideInInspector]    public int m_PlayerNumber;
     [HideInInspector]    public string m_ColoredPlayerText;
     [HideInInspector]    public GameObject m_Instance;
-    [HideInInspector]    public int m_Wins;
+    [HideInInspector]    public int m_Lives;
     [HideInInspector]    public script_movement m_script_movement;    
 
     private GameObject m_canvas_element;
@@ -84,6 +86,18 @@ public class script_manager_duck{
             Vector3 direction = Vector3.Normalize(m_Instance.transform.position);
             m_rigidbody.AddForce(direction * 9000000);
         }
+    }
+
+    public int Lose_Life()
+    {
+
+        m_Lives--;
+        return m_Lives;
+    }
+
+    public string Get_Lives()
+    {
+        return "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">" + m_Lives + "</color>";
     }
 
 }
