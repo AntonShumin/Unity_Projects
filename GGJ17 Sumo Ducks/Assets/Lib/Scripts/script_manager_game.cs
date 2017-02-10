@@ -127,6 +127,7 @@ public class script_manager_game : MonoBehaviour {
 
     private void Show_Winner(int winner)
     {
+        Show_Lives(false);
         string round_message = m_script_ducks[winner-1].m_ColoredPlayerText  + " duck scores!";
         m_ObjectCollector.m_UI[1].GetComponent<Text>().text = round_message;
         m_ObjectCollector.m_UI[1].SetActive(true);
@@ -142,7 +143,6 @@ public class script_manager_game : MonoBehaviour {
 
     private void Next_Round()
     {
-        Debug.Log("add");
         Round_Reset();
         m_game_state = 0;
         m_rounds_current++;
@@ -155,6 +155,7 @@ public class script_manager_game : MonoBehaviour {
     private IEnumerator Next_Round_Wait()
     {
         yield return new WaitForSeconds(2);
+        Show_Lives(true);
         m_game_state = 1;
         m_ObjectCollector.m_UI[0].SetActive(false);
 
@@ -170,8 +171,15 @@ public class script_manager_game : MonoBehaviour {
 
         foreach (script_manager_duck script in m_script_ducks)
         {
-            script.m_Score_Text.gameObject.SetActive(true);
             script.m_Score_Text.text = script.Get_Lives();
+        }
+    }
+
+    private void Show_Lives(bool b_show)
+    {
+        foreach (script_manager_duck script in m_script_ducks)
+        {
+            script.m_Score_Text.gameObject.SetActive(b_show);
         }
     }
 
