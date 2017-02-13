@@ -9,6 +9,7 @@ public class script_movement : MonoBehaviour {
     public float m_Speed_Airborm;
     public float m_TurnSpeed = 180f;
     public Animator m_animator;
+    public GameObject testPrefab;
 
     //allow interaction
     public bool m_push_enabled = true;
