@@ -19,6 +19,6 @@ public class script_manager_particles : MonoBehaviour {
     public void cfx_spown(int type, Vector3 position)
     {
         GameObject instance = CFX_SpawnSystem.GetNextObject(m_cfx_type[type]);
-        //instance.transform.position = position;
+        instance.transform.position = position;
     }
 }

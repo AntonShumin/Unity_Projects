@@ -164,7 +164,6 @@ public class script_movement : MonoBehaviour {
 
             //particles
             Vector3 central_position = (col.transform.position - transform.position)/2 + transform.position;
-            Debug.Log(central_position);
             m_particle_manager.cfx_spown(2, central_position);
         }
         
@@ -252,7 +251,7 @@ public class script_movement : MonoBehaviour {
             case 3: //land
                 if(velocity >= 0 ) //land
                 {
-                    m_particle_manager.cfx_spown(3, transform.position);
+                    m_particle_manager.cfx_spown(0, transform.position);
                     m_airborn_state = 0;
                     m_airborn = false;
                 }
