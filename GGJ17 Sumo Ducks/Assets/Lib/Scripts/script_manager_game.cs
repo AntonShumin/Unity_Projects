@@ -24,6 +24,7 @@ public class script_manager_game : MonoBehaviour {
     private void Start()
     {
         m_ObjectCollector = GameObject.Find("Object Collector").GetComponent<script_manager_collector>();
+        script_movement.m_particle_manager = GameObject.Find("Manager_Particles").GetComponent<script_manager_particles>();
         Spawn_All_Ducks();
         Set_Camera_Targets();
         Start_Versus();

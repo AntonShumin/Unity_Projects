@@ -29,6 +29,8 @@ public class script_movement : MonoBehaviour {
     private int m_airborn_state = 0;
     private Vector3 m_raycast_offset = new Vector3(0,2,0);
     private script_manager_collector m_object_collector;
+
+    public static script_manager_particles m_particle_manager;
     
     
     
@@ -159,6 +161,11 @@ public class script_movement : MonoBehaviour {
 
             //trigger oponent push
             col.GetComponent<script_movement>().OnTriggerEnter(gameObject.GetComponent<Collider>());
+
+            //particles
+            Vector3 central_position = (col.transform.position - transform.position)/2 + transform.position;
+            Debug.Log(central_position);
+            m_particle_manager.cfx_spown(2, central_position);
         }
         
     }
@@ -245,6 +252,7 @@ public class script_movement : MonoBehaviour {
             case 3: //land
                 if(velocity >= 0 ) //land
                 {
+                    m_particle_manager.cfx_spown(3, transform.position);
                     m_airborn_state = 0;
                     m_airborn = false;
                 }
