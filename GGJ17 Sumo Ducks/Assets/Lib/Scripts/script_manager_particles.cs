@@ -21,4 +21,9 @@ public class script_manager_particles : MonoBehaviour {
         GameObject instance = CFX_SpawnSystem.GetNextObject(m_cfx_type[type]);
         instance.transform.position = position;
     }
+
+    public GameObject get_ripples()
+    {
+        return CFX_SpawnSystem.GetNextObject(m_cfx_type[1]);
+    }
 }

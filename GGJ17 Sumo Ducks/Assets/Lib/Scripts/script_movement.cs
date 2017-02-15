@@ -29,6 +29,7 @@ public class script_movement : MonoBehaviour {
     private int m_airborn_state = 0;
     private Vector3 m_raycast_offset = new Vector3(0,2,0);
     private script_manager_collector m_object_collector;
+    private GameObject m_ripple;
 
     public static script_manager_particles m_particle_manager;
     
@@ -66,6 +67,7 @@ public class script_movement : MonoBehaviour {
         m_jump_name = "Jump_" + m_PlayerNumber;
         m_fire_name = "Fire_" + m_PlayerNumber;
         m_object_collector = GameObject.Find("Object Collector").GetComponent<script_manager_collector>();
+        m_ripple = m_particle_manager.get_ripples();
 
     }
 
@@ -79,17 +81,30 @@ public class script_movement : MonoBehaviour {
         Vector3 velocity = m_Rigidbody.velocity;
         velocity.y = 0f;
         m_Last_Velocity = velocity;
+        ripples();
 
-        if(m_movement_active)
+        if (m_movement_active)
         {
             Jump();
             Fire();
         }
         
-
         if (m_airborn) Airborn_Track();
+
     }
 
+    private void ripples()
+    {
+        m_ripple.transform.position = transform.position + new Vector3(0,3,0);
+        if (m_Last_Velocity.magnitude < 1 || m_airborn_state != 0 || !m_movement_active)
+        {
+            m_ripple.SetActive(false);
+        }
+        else
+        {
+            m_ripple.SetActive(true);
+        }
+    }
 
 
     private void FixedUpdate()
