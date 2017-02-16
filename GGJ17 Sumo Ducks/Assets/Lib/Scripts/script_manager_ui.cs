@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class script_manager_ui : MonoBehaviour {
 
+    public GameObject[] menu_items;
+
 	// Use this for initialization
 	void Start () {
 		
