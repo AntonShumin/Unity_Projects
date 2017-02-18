@@ -10,6 +10,7 @@ public class script_manager_ui : MonoBehaviour {
     public float m_menu_items_pointer = 0;
     public Color m_menu_item_selected_color;
 
+    public GameObject[] m_menu_elements;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class script_manager_ui : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        \
+        
         if(m_menu_active)
         {
             //move through menu items
@@ -29,7 +30,15 @@ public class script_manager_ui : MonoBehaviour {
                 float direction = Input.GetAxis("Vertical_1") + Input.GetAxis("Vertical_2");
                 move_menu_items(direction);
             }
+
+            if (Input.GetButtonDown("Jump_1") || Input.GetButtonDown("Jump_2"))
+            {
+                menu_confirm();
+            }
+
         }
+
+        
         
     }
 
@@ -60,6 +69,20 @@ public class script_manager_ui : MonoBehaviour {
             item.color = Color.white;
             item.fontSize = 50;
         }
+    }
+
+    private void menu_confirm()
+    {
+        Text selected_menu_item = m_menu_items[(int)m_menu_items_pointer];
+
+        switch (selected_menu_item.text)
+        {
+            case "battle":
+
+                break;
+        }
+            
+
     }
 
 

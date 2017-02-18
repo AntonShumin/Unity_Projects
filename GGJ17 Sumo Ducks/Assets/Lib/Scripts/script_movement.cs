@@ -13,7 +13,7 @@ public class script_movement : MonoBehaviour {
 
     //allow interaction
     public bool m_push_enabled = true;
-    public bool m_movement_active = true;
+    
     public bool m_camera_active = true;
 
     public script_wave m_script_wave;
@@ -30,6 +30,7 @@ public class script_movement : MonoBehaviour {
     private Vector3 m_raycast_offset = new Vector3(0,2,0);
     private script_manager_collector m_object_collector;
     private GameObject m_ripple;
+    private bool m_movement_active = false;
 
     public static script_manager_particles m_particle_manager;
     
@@ -272,6 +273,11 @@ public class script_movement : MonoBehaviour {
                 }
                 break;
         }
+    }
+
+    public void movement_active(bool state)
+    {
+        m_movement_active = state;
     }
 
 

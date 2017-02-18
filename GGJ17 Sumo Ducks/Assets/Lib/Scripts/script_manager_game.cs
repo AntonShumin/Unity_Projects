@@ -27,7 +27,8 @@ public class script_manager_game : MonoBehaviour {
         script_movement.m_particle_manager = GameObject.Find("Manager_Particles").GetComponent<script_manager_particles>();
         Spawn_All_Ducks();
         Set_Camera_Targets();
-        Start_Versus();
+        
+
     }
 
 
@@ -93,9 +94,9 @@ public class script_manager_game : MonoBehaviour {
 
     public void Exit_Bounds(int player_number)
     {
-        script_manager_duck duck_script = m_script_ducks[player_number - 1];
-        if(duck_script.m_script_movement.m_movement_active)
+        if(m_game_state == 1)
         {
+            script_manager_duck duck_script = m_script_ducks[player_number - 1];
             duck_script.OutOfBounds_Push();
             Block_Player_Movement();
             m_game_state = 2;

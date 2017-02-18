@@ -42,13 +42,13 @@ public class script_manager_duck{
     public void DisableControl()
     {
         //m_script_movement.enabled = false;
-        m_script_movement.m_movement_active = false;
+        m_script_movement.movement_active(false);
     }
 
     public void EnableControl()
     {
         //m_script_movement.enabled = true;
-        m_script_movement.m_movement_active = true;
+        m_script_movement.movement_active(true);
 
     }
 
@@ -73,7 +73,7 @@ public class script_manager_duck{
         m_Instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
         //enable movement script
-        EnableControl();
+        //EnableControl();
         EnableCamera();
     }
 
