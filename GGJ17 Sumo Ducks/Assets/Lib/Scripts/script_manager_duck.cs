@@ -73,7 +73,7 @@ public class script_manager_duck{
         m_Instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
         //enable movement script
-        //EnableControl();
+        EnableControl();
         EnableCamera();
     }
 

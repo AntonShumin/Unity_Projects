@@ -41,7 +41,7 @@ public class script_manager_game : MonoBehaviour {
         }
     }
 
-    private void Start_Versus()
+    public void Start_Versus()
     {
         m_rounds_current = 0;
         foreach(script_manager_duck duck in m_script_ducks)

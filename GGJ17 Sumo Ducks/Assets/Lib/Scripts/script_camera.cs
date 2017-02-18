@@ -16,6 +16,8 @@ public class script_camera : MonoBehaviour {
     private Vector3 m_MoveVelocity;
     private Vector3 m_DesiredPosition;
 
+    private int m_camera_state = 0;
+
 
     private void Awake()
     {
@@ -25,8 +27,12 @@ public class script_camera : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        Move();
-        Zoom();
+        if(m_camera_state == 0)
+        {
+            Move();
+            Zoom();
+        }
+        
     }
 
 

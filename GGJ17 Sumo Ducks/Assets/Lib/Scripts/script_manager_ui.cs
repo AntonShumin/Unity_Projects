@@ -6,23 +6,40 @@ using UnityEngine.UI;
 public class script_manager_ui : MonoBehaviour {
 
     public Text[] m_menu_items;
-    public bool m_menu_active = false;
     public float m_menu_items_pointer = 0;
     public Color m_menu_item_selected_color;
-
     public GameObject[] m_menu_elements;
+    public bool[] m_player_joined;
 
-	// Use this for initialization
-	void Start () {
+    private script_manager_game m_manager_game;
+    private bool m_menu_active = false;
+    private bool m_join_screen = false;
+
+
+    // Use this for initialization
+    void Awake () {
 
         m_menu_active = true;
+        m_manager_game = GameObject.Find("Manager_Game").GetComponent<script_manager_game>();
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
-        if(m_menu_active)
+
+        if (m_join_screen)
+        {
+            if (Input.GetButtonDown("Jump_1"))
+            {
+                menu_join_player(1);
+            }
+            else if (Input.GetButtonDown("Jump_2"))
+            {
+                menu_join_player(2);
+            }
+        }
+
+        if (m_menu_active)
         {
             //move through menu items
             if (Input.GetButtonDown("Vertical_1") || Input.GetButtonDown("Vertical_2"))
@@ -35,8 +52,9 @@ public class script_manager_ui : MonoBehaviour {
             {
                 menu_confirm();
             }
-
         }
+
+        
 
         
         
@@ -78,12 +96,36 @@ public class script_manager_ui : MonoBehaviour {
         switch (selected_menu_item.text)
         {
             case "battle":
+                m_menu_active = false;
+                m_join_screen = true;
+                for(int i = 1; i<4; i++)
+                {
+                    m_menu_elements[i].SetActive(false);
+                }
+                m_menu_elements[6].SetActive(true);
 
                 break;
         }
-            
-
     }
+
+    private void menu_join_player(int player)
+    {
+        if (m_player_joined[player - 1] == false)
+        {
+            m_player_joined[player - 1] = true;
+            m_menu_elements[6 + player].SetActive(false);
+            m_menu_elements[8 + player].SetActive(true);
+            if(m_player_joined[0] == true && m_player_joined[1] == true)
+            {
+                m_manager_game.Start_Versus();
+                m_menu_elements[6].SetActive(false);
+                m_menu_elements[0].SetActive(false);
+            }
+        }
+        
+    }
+
+
 
 
 }
