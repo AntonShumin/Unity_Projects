@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class script_camera : MonoBehaviour {
 
@@ -17,6 +18,8 @@ public class script_camera : MonoBehaviour {
     private Vector3 m_DesiredPosition;
 
     private int m_camera_state = 0;
+    // 0 game
+    // 1 menu rotate
 
 
     private void Awake()
@@ -31,8 +34,35 @@ public class script_camera : MonoBehaviour {
         {
             Move();
             Zoom();
+        } else if (m_camera_state == 1)
+        {
+            transform.RotateAround(transform.position, Vector3.up, 2 * Time.deltaTime);
         }
         
+    }
+
+    public void Set_Camera_State(string state)
+    {
+        switch(state)
+        {
+            case "menu":
+                m_camera_state = 1;
+                m_Camera.transform.localPosition = new Vector3(0, -59, -118 );
+                m_Camera.transform.localEulerAngles = new Vector3(-11, 0, 0);
+                break;
+            case "joining":
+                m_camera_state = 1;
+                m_Camera.transform.DOLocalMove(new Vector3(0, 55, -100), 0.5f);
+                m_Camera.transform.DOLocalRotate(new Vector3(30, 0, 10), 0.5f,RotateMode.Fast);
+                //.transform.localEulerAngles = new Vector3(30, 0, 10);
+                break;
+            case "battle":
+                m_camera_state = 0;
+                transform.DOLocalRotate(new Vector3(40, 0, 0), 0.5f, RotateMode.Fast);
+                m_Camera.transform.DOLocalMove(new Vector3(0, -10, -100), 0.5f);
+                m_Camera.transform.DOLocalRotate(new Vector3(5, 0, 0), 0.5f, RotateMode.Fast);
+                break;
+        }
     }
 
 

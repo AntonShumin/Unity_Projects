@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class script_manager_duck{
 
     public Color m_PlayerColor;
+    public Color m_PointLightColor;
     public Transform m_SpownPoint;
     public Texture m_Texture;
     public string m_Name;
@@ -36,6 +37,7 @@ public class script_manager_duck{
         //Colors
         m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">"+ m_Name +  "</color>";
         m_Instance.GetComponentInChildren<Renderer>().material.SetTexture("_MainTex", m_Texture);
+        m_Instance.GetComponentInChildren<Light>().color = m_PointLightColor;
 
     }
 
@@ -86,6 +88,7 @@ public class script_manager_duck{
             Vector3 direction = Vector3.Normalize(m_Instance.transform.position);
             m_rigidbody.AddForce(direction * 9000000);
         }
+        m_rigidbody.AddForce(Vector3.up * 5000000);
     }
 
     public int Lose_Life()

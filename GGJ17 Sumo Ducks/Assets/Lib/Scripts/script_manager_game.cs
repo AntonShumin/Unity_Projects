@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Borodar.FarlandSkies.LowPoly;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,14 +21,21 @@ public class script_manager_game : MonoBehaviour {
     private script_manager_duck m_RoundWinner;
     private script_manager_duck m_GameWinner;
     private script_manager_collector m_ObjectCollector;
+    private script_manager_ui m_manager_ui;
 
     private void Start()
     {
+        Cursor.visible = false;
+        //setup objects
         m_ObjectCollector = GameObject.Find("Object Collector").GetComponent<script_manager_collector>();
+        m_manager_ui = GameObject.Find("Manager_Ui").GetComponent<script_manager_ui>();
         script_movement.m_particle_manager = GameObject.Find("Manager_Particles").GetComponent<script_manager_particles>();
         Spawn_All_Ducks();
         Set_Camera_Targets();
-        
+
+        //start game sequence
+        m_manager_ui.load_menu();
+        m_script_camera.Set_Camera_State("menu");
 
     }
 
@@ -39,10 +47,13 @@ public class script_manager_game : MonoBehaviour {
             StopAllCoroutines();
             //Next_Round();
         }
-    }
+
+        SkyboxDayNightCycle.Instance.TimeOfDay += (Time.deltaTime / 120) * 100f;
+        }
 
     public void Start_Versus()
     {
+        m_script_camera.Set_Camera_State("battle");
         m_rounds_current = 0;
         foreach(script_manager_duck duck in m_script_ducks)
         {
@@ -96,6 +107,9 @@ public class script_manager_game : MonoBehaviour {
     {
         if(m_game_state == 1)
         {
+            //Play Sound
+            script_manager_sound.m_Instance.Play_Exit_Bounds();
+
             script_manager_duck duck_script = m_script_ducks[player_number - 1];
             duck_script.OutOfBounds_Push();
             Block_Player_Movement();
@@ -183,6 +197,11 @@ public class script_manager_game : MonoBehaviour {
         {
             script.m_Score_Text.gameObject.SetActive(b_show);
         }
+    }
+
+    public void Menu_join()
+    {
+        m_script_camera.Set_Camera_State("joining");
     }
 
 

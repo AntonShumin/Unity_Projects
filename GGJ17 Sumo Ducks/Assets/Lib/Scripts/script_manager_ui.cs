@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class script_manager_ui : MonoBehaviour {
 
@@ -31,11 +32,11 @@ public class script_manager_ui : MonoBehaviour {
         {
             if (Input.GetButtonDown("Jump_1"))
             {
-                menu_join_player(1);
+                menu_join_player(2);
             }
             else if (Input.GetButtonDown("Jump_2"))
             {
-                menu_join_player(2);
+                menu_join_player(1);
             }
         }
 
@@ -96,6 +97,7 @@ public class script_manager_ui : MonoBehaviour {
         switch (selected_menu_item.text)
         {
             case "battle":
+                m_manager_game.Menu_join();
                 m_menu_active = false;
                 m_join_screen = true;
                 for(int i = 1; i<4; i++)
@@ -124,6 +126,14 @@ public class script_manager_ui : MonoBehaviour {
         }
         
     }
+
+    public void load_menu()
+    {
+        //snow panel
+        m_menu_elements[11].SetActive(true);
+    }
+
+
 
 
 

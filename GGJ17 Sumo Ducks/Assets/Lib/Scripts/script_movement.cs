@@ -147,6 +147,9 @@ public class script_movement : MonoBehaviour {
             // if difference_vector and velocity have posite sign, set difference vector xyz to 0
             // add minimum force (if abs < 300 000 then *4)
 
+            //play sound
+            script_manager_sound.m_Instance.Play_Duck();
+            script_manager_sound.m_Instance.Play_Impact();
 
             //Get attack vector
             Vector3 pos_target = col.transform.position;
@@ -194,12 +197,14 @@ public class script_movement : MonoBehaviour {
     private void Jump()
     {
         //Grounded detection
-        
-
         if ( Input.GetButtonDown(m_jump_name) )
         {
             if (Physics.Raycast(transform.position + m_raycast_offset, Vector3.down, 3))
             {
+                //play sound
+                script_manager_sound.m_Instance.Play_Duck();
+                script_manager_sound.m_Instance.Play_Jump();
+
                 //half velocity 
                 m_Rigidbody.velocity /= 2;
 
@@ -214,6 +219,9 @@ public class script_movement : MonoBehaviour {
 
             } else if (transform.position.y > 3 && m_airborn)
             {
+                //play sound
+                script_manager_sound.m_Instance.Play_Duck();
+
                 //add dive force 
                 m_animator.SetTrigger("flap");
                 m_Rigidbody.AddForce(new Vector3(0, -9000000f, 0));
@@ -228,6 +236,9 @@ public class script_movement : MonoBehaviour {
     {
         if( Input.GetButtonDown(m_fire_name) )
         {
+            //play sound
+            script_manager_sound.m_Instance.Play_Duck();
+
             m_animator.SetTrigger("flap");
             GameObject missile = m_object_collector.Get_Missile();
             missile.SetActive(true);
@@ -267,6 +278,10 @@ public class script_movement : MonoBehaviour {
             case 3: //land
                 if(velocity >= 0 ) //land
                 {
+                    //play sound
+                    script_manager_sound.m_Instance.Play_Duck();
+                    script_manager_sound.m_Instance.Play_Splash();
+
                     m_particle_manager.cfx_spown(0, transform.position);
                     m_airborn_state = 0;
                     m_airborn = false;
