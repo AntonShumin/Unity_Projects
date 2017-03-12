@@ -16,6 +16,7 @@ public class script_manager_game : MonoBehaviour {
     public GameObject m_prefab_duck;
     public GameObject m_prefab_wave;
     public script_manager_duck[] m_script_ducks;
+    public int[] m_versus_score = new int[5];
 
     private int m_rounds_current = 0;
     private script_manager_duck m_RoundWinner;
