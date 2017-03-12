@@ -22,6 +22,7 @@ public class script_manager_game : MonoBehaviour {
     private script_manager_duck m_GameWinner;
     private script_manager_collector m_ObjectCollector;
     private script_manager_ui m_manager_ui;
+    private float m_daytime_factor = 0;
 
     private void Start()
     {
@@ -48,8 +49,12 @@ public class script_manager_game : MonoBehaviour {
             //Next_Round();
         }
 
-        SkyboxDayNightCycle.Instance.TimeOfDay += (Time.deltaTime / 120) * 100f;
+        if(m_daytime_factor != 0 )
+        {
+            SkyboxDayNightCycle.Instance.TimeOfDay += (Time.deltaTime / m_daytime_factor) * 100f;
         }
+        
+    }
 
     public void Start_Versus()
     {

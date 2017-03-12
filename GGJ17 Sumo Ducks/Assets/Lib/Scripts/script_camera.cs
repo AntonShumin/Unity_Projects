@@ -36,7 +36,7 @@ public class script_camera : MonoBehaviour {
             Zoom();
         } else if (m_camera_state == 1)
         {
-            transform.RotateAround(transform.position, Vector3.up, 2 * Time.deltaTime);
+            transform.RotateAround(transform.position, Vector3.up, 0.5f * Time.deltaTime);
         }
         
     }
