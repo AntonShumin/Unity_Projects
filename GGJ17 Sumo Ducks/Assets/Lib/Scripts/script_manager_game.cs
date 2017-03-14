@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class script_manager_game : MonoBehaviour {
 
     [HideInInspector]
-    public int m_game_state = 0; //0 loading 1 playing // 2 exit bounds
+    public int m_game_state = 0; //0 loading 1 playing 2 exit bounds
 
     public int m_rounds_total;
     public float m_start_delay;
@@ -47,7 +47,6 @@ public class script_manager_game : MonoBehaviour {
         if (Input.GetKeyDown("return") || Input.GetKeyDown("enter"))
         {
             StopAllCoroutines();
-            //Next_Round();
         }
 
         if(m_daytime_factor != 0 )
@@ -57,18 +56,68 @@ public class script_manager_game : MonoBehaviour {
         
     }
 
-    public void Start_Versus()
+    //delay:   Invoke("LaunchProjectile", 2);
+    /************************************
+     *******Central Event Logic********** 
+     ***********************************/
+    public void Logic_Tree(string event_name, int param1 = 0)
     {
-        m_script_camera.Set_Camera_State("battle");
-        m_rounds_current = 0;
-        foreach(script_manager_duck duck in m_script_ducks)
+        switch (event_name)
         {
-            duck.m_Lives = 3; 
-        }
-        Next_Round();
-        Update_Lives_UI();
 
+            case "start versus":
+
+                
+                m_rounds_current = 0;
+                foreach (script_manager_duck duck in m_script_ducks)
+                {
+                    duck.m_Lives = 3;
+                }
+                Logic_Tree("next round");
+                Update_Lives_UI();
+                break;
+
+            case "round reset":
+
+                foreach (script_manager_duck script in m_script_ducks)
+                {
+                    //reset position
+                    script.Reset();
+                }
+                break;
+
+            case "next round":
+
+                m_script_camera.Set_Camera_State("battle prep");
+                Logic_Tree("round reset");
+                m_game_state = 0;
+                m_rounds_current++;
+                string round_message = "Round <color=#ffa500ff>" + m_rounds_current + "</color>";
+                m_ObjectCollector.m_UI[0].GetComponent<Text>().text = round_message;
+                m_ObjectCollector.m_UI[0].SetActive(true);
+                StartCoroutine(Next_Round_Wait());
+
+                break;
+
+            case "next round wait":
+
+                m_script_camera.Set_Camera_State("battle");
+                Show_Lives(true);
+                m_game_state = 1;
+                m_ObjectCollector.m_UI[0].SetActive(false);
+
+                break;
+
+            case "":
+                break;
+
+
+        }
     }
+    //---------END EVENT LOGIC-----------
+
+
+
 
 
 
@@ -99,14 +148,6 @@ public class script_manager_game : MonoBehaviour {
 
     }
 
-    private void Round_Reset()
-    {
-        foreach( script_manager_duck script in m_script_ducks )
-        {
-            //reset position
-            script.Reset();
-        }
-    }
 
 
     public void Exit_Bounds(int player_number)
@@ -115,7 +156,6 @@ public class script_manager_game : MonoBehaviour {
         {
             //Play Sound
             script_manager_sound.m_Instance.Play_Exit_Bounds();
-
             script_manager_duck duck_script = m_script_ducks[player_number - 1];
             duck_script.OutOfBounds_Push();
             Block_Player_Movement();
@@ -144,7 +184,7 @@ public class script_manager_game : MonoBehaviour {
 
         yield return new WaitForSeconds(2f);
         m_ObjectCollector.m_UI[1].SetActive(false);
-        Next_Round();
+        Logic_Tree("next round");
     }
 
     private void Show_Winner(int winner)
@@ -163,29 +203,17 @@ public class script_manager_game : MonoBehaviour {
         }
     }
 
-    private void Next_Round()
-    {
-        Round_Reset();
-        m_game_state = 0;
-        m_rounds_current++;
-        string round_message = "Round <color=#ffa500ff>" + m_rounds_current + "</color>";
-        m_ObjectCollector.m_UI[0].GetComponent<Text>().text = round_message;
-        m_ObjectCollector.m_UI[0].SetActive(true);
-        StartCoroutine(Next_Round_Wait());
-    }
 
     private IEnumerator Next_Round_Wait()
     {
         yield return new WaitForSeconds(2);
-        Show_Lives(true);
-        m_game_state = 1;
-        m_ObjectCollector.m_UI[0].SetActive(false);
+        Logic_Tree("next round wait");
 
     }
 
     private void End_Round(int loser)
     {
-        Start_Versus();
+        Logic_Tree("start versus");
     }
 
     private void Update_Lives_UI()
