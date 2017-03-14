@@ -18,6 +18,7 @@ public class script_camera : MonoBehaviour {
     private Vector3 m_DesiredPosition;
 
     private int m_camera_state = 0;
+    private float m_camera_rotate_rate = 0.5f;
     // 0 game
     // 1 menu rotate
 
@@ -36,7 +37,7 @@ public class script_camera : MonoBehaviour {
             Zoom();
         } else if (m_camera_state == 1)
         {
-            transform.RotateAround(transform.position, Vector3.up, 0.5f * Time.deltaTime);
+            transform.RotateAround(transform.position, Vector3.up, m_camera_rotate_rate * Time.deltaTime);
         }
         
     }
@@ -47,11 +48,13 @@ public class script_camera : MonoBehaviour {
         {
             case "menu":
                 m_camera_state = 1; //rotating
+                m_camera_rotate_rate = 0.6f;
                 m_Camera.transform.localPosition = new Vector3(0, -59, -118 );
                 m_Camera.transform.localEulerAngles = new Vector3(-11, 0, 0);
                 break;
             case "joining":
                 m_camera_state = 1; //rotating
+                m_camera_rotate_rate = 0.5f;
                 m_Camera.transform.DOLocalMove(new Vector3(0, 55, -100), 0.5f);
                 m_Camera.transform.DOLocalRotate(new Vector3(30, 0, 10), 0.5f,RotateMode.Fast);
                 //.transform.localEulerAngles = new Vector3(30, 0, 10);
@@ -63,7 +66,8 @@ public class script_camera : MonoBehaviour {
                 m_Camera.transform.DOLocalRotate(new Vector3(5, 0, 0), 0.5f, RotateMode.Fast).SetEase(Ease.OutBack);
                 break;
             case "battle prep":
-                m_camera_state = 0;
+                m_camera_state = 1;
+                m_camera_rotate_rate = -3f;
                 transform.DOLocalRotate(new Vector3(40, 0, 0), 0.5f, RotateMode.Fast).SetEase(Ease.OutQuad);
                 m_Camera.transform.DOLocalMove(new Vector3(0f, 1.2f, -60), 0.5f).SetEase(Ease.OutQuad);
                 m_Camera.transform.DOLocalRotate(new Vector3(5, 0, 0), 0.5f, RotateMode.Fast).SetEase(Ease.OutQuad);
