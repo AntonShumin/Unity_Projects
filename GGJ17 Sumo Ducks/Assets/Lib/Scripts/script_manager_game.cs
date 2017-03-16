@@ -88,7 +88,7 @@ public class script_manager_game : MonoBehaviour {
 
             case "next round":
 
-                m_script_camera.Set_Camera_State("battle prep");
+                
                 Logic_Tree("round reset");
                 m_game_state = 0;
                 m_rounds_current++;
@@ -96,6 +96,7 @@ public class script_manager_game : MonoBehaviour {
                 m_ObjectCollector.m_UI[0].GetComponent<Text>().text = round_message;
                 m_ObjectCollector.m_UI[0].SetActive(true);
                 StartCoroutine(Next_Round_Wait());
+                m_script_camera.Set_Camera_State("battle prep");
 
                 break;
 
@@ -191,6 +192,7 @@ public class script_manager_game : MonoBehaviour {
     {
         Show_Lives(false);
         string round_message = m_script_ducks[winner-1].m_ColoredPlayerText  + " duck scores!";
+        m_script_camera.Set_Camera_State("round winner");
         m_ObjectCollector.m_UI[1].GetComponent<Text>().text = round_message;
         m_ObjectCollector.m_UI[1].SetActive(true);
     }

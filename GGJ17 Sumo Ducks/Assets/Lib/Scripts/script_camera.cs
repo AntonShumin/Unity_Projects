@@ -47,12 +47,16 @@ public class script_camera : MonoBehaviour {
         switch(state)
         {
             case "menu":
+                DOTween.Kill(m_Camera);
+                DOTween.Kill(transform);
                 m_camera_state = 1; //rotating
                 m_camera_rotate_rate = 0.6f;
                 m_Camera.transform.localPosition = new Vector3(0, -59, -118 );
                 m_Camera.transform.localEulerAngles = new Vector3(-11, 0, 0);
                 break;
             case "joining":
+                DOTween.Kill(m_Camera);
+                DOTween.Kill(transform);
                 m_camera_state = 1; //rotating
                 m_camera_rotate_rate = 0.5f;
                 m_Camera.transform.DOLocalMove(new Vector3(0, 55, -100), 0.5f);
@@ -60,17 +64,26 @@ public class script_camera : MonoBehaviour {
                 //.transform.localEulerAngles = new Vector3(30, 0, 10);
                 break;
             case "battle":
+                DOTween.Kill(m_Camera);
+                DOTween.Kill(transform);
                 m_camera_state = 0;
                 transform.DOLocalRotate(new Vector3(40, 0, 0), 0.5f, RotateMode.Fast);
                 m_Camera.transform.DOLocalMove(new Vector3(0, -10, -100), 0.5f).SetEase(Ease.OutBack);
                 m_Camera.transform.DOLocalRotate(new Vector3(5, 0, 0), 0.5f, RotateMode.Fast).SetEase(Ease.OutBack);
                 break;
             case "battle prep":
+                DOTween.Kill(m_Camera);
+                DOTween.Kill(transform);
                 m_camera_state = 1;
                 m_camera_rotate_rate = -3f;
                 transform.DOLocalRotate(new Vector3(40, 0, 0), 0.5f, RotateMode.Fast).SetEase(Ease.OutQuad);
                 m_Camera.transform.DOLocalMove(new Vector3(0f, 1.2f, -60), 0.5f).SetEase(Ease.OutQuad);
                 m_Camera.transform.DOLocalRotate(new Vector3(5, 0, 0), 0.5f, RotateMode.Fast).SetEase(Ease.OutQuad);
+                break;
+            case "round winner":
+                DOTween.Kill(m_Camera);
+                DOTween.Kill(transform);
+                m_Camera.transform.DOLocalMove(new Vector3(0f, 4.5f, -40), 0.5f).SetEase(Ease.OutQuad);
                 break;
         }
     }
