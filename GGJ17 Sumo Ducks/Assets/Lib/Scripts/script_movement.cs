@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class script_movement : MonoBehaviour {
 
+    //public
     public int m_PlayerNumber = 1;
     public float m_Speed;
     public float m_Speed_Airborm;
     public float m_TurnSpeed = 180f;
     public Animator m_animator;
     public GameObject testPrefab;
-
-    //allow interaction
     public bool m_push_enabled = true;
-    
     public bool m_camera_active = true;
-
     public script_wave m_script_wave;
 
+    //static
+    public static script_manager_particles m_particle_manager;
+
+    //private
     private string m_HorizontalAxisName;
     private string m_VerticalAxisName;
     private string m_jump_name;
@@ -31,8 +32,7 @@ public class script_movement : MonoBehaviour {
     private script_manager_collector m_object_collector;
     private GameObject m_ripple;
     private bool m_movement_active = false;
-
-    public static script_manager_particles m_particle_manager;
+    
     
     
     
@@ -86,6 +86,7 @@ public class script_movement : MonoBehaviour {
 
         if (m_movement_active)
         {
+            
             Jump();
             Fire();
         }
@@ -113,6 +114,7 @@ public class script_movement : MonoBehaviour {
         if (m_movement_active)
         {
             Move();
+            Move_velocity();
             if (m_MovementVector.magnitude > 0)
             {
                 Turn();
@@ -121,6 +123,43 @@ public class script_movement : MonoBehaviour {
         
     }
 
+    private void Move_velocity()
+    {
+        //if movement continues in the same direction
+
+        Vector3 add_velocity = new Vector3(m_MovementVector.x * Move_velocity_factor(m_Last_Velocity.x, m_MovementVector.x), 0, m_MovementVector.z * Move_velocity_factor(m_Last_Velocity.z, m_MovementVector.z))*Time.deltaTime;
+        
+        
+        //Vector3 add_velocity = m_MovementVector * Time.deltaTime * velocity_factor;
+       
+        m_Rigidbody.velocity += add_velocity;
+        //Debug.Log(m_Rigidbody.velocity);
+
+    }
+
+    private float Move_velocity_factor(float x,float move_axis)
+    {
+        float velocity_max = 55f;
+        float velocity_factor;
+        float velocity_factor_max = velocity_factor = 180f;
+        if (move_axis * x >= 0)
+        {
+            x = Mathf.Abs(x);
+            
+            if (x < velocity_max)
+            {
+
+                velocity_factor = velocity_factor_max * ((velocity_max - x) / velocity_max);
+            }
+            else
+            {
+                velocity_factor = 0;
+            }
+        }
+        return velocity_factor;
+    }
+
+
     private void Move()
     {
         if(m_airborn)
@@ -128,11 +167,12 @@ public class script_movement : MonoBehaviour {
             m_Rigidbody.AddForce(m_MovementVector * m_Speed_Airborm);
         } else
         {
-            m_Rigidbody.AddForce(m_MovementVector * m_Speed);
+            //m_Rigidbody.AddForce(m_MovementVector * m_Speed);
+
         }
         
-
     }
+
 
     private void Turn()
     {
