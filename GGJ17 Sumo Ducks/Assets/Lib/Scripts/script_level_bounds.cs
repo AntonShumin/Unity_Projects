@@ -19,7 +19,7 @@ public class script_level_bounds : MonoBehaviour {
             if (col.gameObject.GetComponent<script_movement>() != null)
             {
                 //pass player number to game manager
-                m_game_manager.Exit_Bounds(col.gameObject.GetComponent<script_movement>().m_PlayerNumber);
+                m_game_manager.Exit_Bounds(col);
             }
         }
     }

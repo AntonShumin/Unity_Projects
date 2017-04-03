@@ -9,6 +9,7 @@ public class script_manager_game : MonoBehaviour {
     [HideInInspector]
     public int m_game_state = 0; //0 loading 1 playing 2 exit bounds
 
+    //public
     public int m_rounds_total;
     public float m_start_delay;
     public float m_end_delay;
@@ -18,12 +19,18 @@ public class script_manager_game : MonoBehaviour {
     public script_manager_duck[] m_script_ducks;
     public int[] m_versus_score = new int[5];
 
+    //private
     private int m_rounds_current = 0;
     private script_manager_duck m_RoundWinner;
     private script_manager_duck m_GameWinner;
     private script_manager_collector m_ObjectCollector;
     private script_manager_ui m_manager_ui;
     private float m_daytime_factor = 0;
+
+    //event specific
+    private int m_event_winner = 0;
+    private int m_event_loser = 0;
+
 
     private void Start()
     {
@@ -56,6 +63,41 @@ public class script_manager_game : MonoBehaviour {
         
     }
 
+    public void Exit_Bounds(Collider col)
+    {
+
+        if (m_game_state == 1)
+        {
+            m_event_loser = col.GetComponent<script_movement>().m_PlayerNumber;
+            m_event_winner = Mathf.Abs(m_event_loser - 3);
+            Logic_Tree("exit bounds");
+        }
+
+        /*
+        if(m_game_state == 1)
+        {
+            //Play Sound
+            script_manager_sound.m_Instance.Play_Exit_Bounds();
+            script_manager_duck duck_script = m_script_ducks[player_number - 1];
+
+            duck_script.OutOfBounds_Push();
+            Block_Player_Movement();
+            m_game_state = 2;
+            int lives_left = m_script_ducks[player_number - 1].Lose_Life();
+            Update_Lives_UI();
+            if(lives_left < 1)
+            {
+                End_Round(player_number);
+            } else
+            {
+                StartCoroutine(ZoomWinner(duck_script));
+            }
+
+        }
+        */
+
+    }
+
     //delay:   Invoke("LaunchProjectile", 2);
     /************************************
      *******Central Event Logic********** 
@@ -65,9 +107,15 @@ public class script_manager_game : MonoBehaviour {
         switch (event_name)
         {
 
+            case "exit bounds":
+                m_game_state = 2;
+                script_manager_sound.m_Instance.Play_Exit_Bounds();
+                m_script_ducks[m_event_loser].OutOfBounds_Push();
+
+                break;
+
             case "start versus":
 
-                
                 m_rounds_current = 0;
                 foreach (script_manager_duck duck in m_script_ducks)
                 {
@@ -88,7 +136,6 @@ public class script_manager_game : MonoBehaviour {
 
             case "next round":
 
-                
                 Logic_Tree("round reset");
                 m_game_state = 0;
                 m_rounds_current++;
@@ -97,7 +144,6 @@ public class script_manager_game : MonoBehaviour {
                 m_ObjectCollector.m_UI[0].SetActive(true);
                 StartCoroutine(Next_Round_Wait());
                 m_script_camera.Set_Camera_State("battle prep");
-
                 break;
 
             case "next round wait":
@@ -106,7 +152,6 @@ public class script_manager_game : MonoBehaviour {
                 Show_Lives(true);
                 m_game_state = 1;
                 m_ObjectCollector.m_UI[0].SetActive(false);
-
                 break;
 
             case "":
@@ -151,29 +196,7 @@ public class script_manager_game : MonoBehaviour {
 
 
 
-    public void Exit_Bounds(int player_number)
-    {
-        if(m_game_state == 1)
-        {
-            //Play Sound
-            script_manager_sound.m_Instance.Play_Exit_Bounds();
-            script_manager_duck duck_script = m_script_ducks[player_number - 1];
-            duck_script.OutOfBounds_Push();
-            Block_Player_Movement();
-            m_game_state = 2;
-            int lives_left = m_script_ducks[player_number - 1].Lose_Life();
-            Update_Lives_UI();
-            if(lives_left < 1)
-            {
-                End_Round(player_number);
-            } else
-            {
-                StartCoroutine(ZoomWinner(duck_script));
-            }
-
-        }
-
-    }
+    
 
     private IEnumerator ZoomWinner(script_manager_duck duck_script)
     {
