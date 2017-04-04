@@ -11,13 +11,14 @@ public class script_manager_game : MonoBehaviour {
 
     //public
     public int m_rounds_total;
+    public int[] m_rounds_scores = new int[5];
     public float m_start_delay;
     public float m_end_delay;
     public script_camera m_script_camera;
     public GameObject m_prefab_duck;
     public GameObject m_prefab_wave;
     public script_manager_duck[] m_script_ducks;
-    public int[] m_versus_score = new int[5];
+    
 
     //private
     private int m_rounds_current = 0;
@@ -70,7 +71,7 @@ public class script_manager_game : MonoBehaviour {
         {
             m_event_loser = col.GetComponent<script_movement>().m_PlayerNumber;
             m_event_winner = Mathf.Abs(m_event_loser - 3);
-            Logic_Tree("exit bounds");
+            StartCoroutine(Logic_Tree("exit bounds")); 
         }
 
         /*
@@ -102,7 +103,12 @@ public class script_manager_game : MonoBehaviour {
     /************************************
      *******Central Event Logic********** 
      ***********************************/
-    public void Logic_Tree(string event_name, int param1 = 0)
+    public void Logic_Tree_Redirect(string event_name)
+    {
+        StartCoroutine(Logic_Tree(event_name));
+    }
+
+    IEnumerator Logic_Tree(string event_name)
     {
         switch (event_name)
         {
@@ -121,7 +127,7 @@ public class script_manager_game : MonoBehaviour {
                 {
                     duck.m_Lives = 3;
                 }
-                Logic_Tree("next round");
+                StartCoroutine(Logic_Tree("next round"));
                 Update_Lives_UI();
                 break;
 
@@ -136,7 +142,7 @@ public class script_manager_game : MonoBehaviour {
 
             case "next round":
 
-                Logic_Tree("round reset");
+                StartCoroutine(Logic_Tree("round reset"));
                 m_game_state = 0;
                 m_rounds_current++;
                 string round_message = "Round <color=#ffa500ff>" + m_rounds_current + "</color>";
@@ -159,6 +165,7 @@ public class script_manager_game : MonoBehaviour {
 
 
         }
+        yield return "ok";
     }
     //---------END EVENT LOGIC-----------
 
@@ -208,7 +215,7 @@ public class script_manager_game : MonoBehaviour {
 
         yield return new WaitForSeconds(2f);
         m_ObjectCollector.m_UI[1].SetActive(false);
-        Logic_Tree("next round");
+        StartCoroutine(Logic_Tree("next round"));
     }
 
     private void Show_Winner(int winner)
@@ -232,13 +239,13 @@ public class script_manager_game : MonoBehaviour {
     private IEnumerator Next_Round_Wait()
     {
         yield return new WaitForSeconds(2);
-        Logic_Tree("next round wait");
+        StartCoroutine(Logic_Tree("next round wait"));
 
     }
 
     private void End_Round(int loser)
     {
-        Logic_Tree("start versus");
+        StartCoroutine(Logic_Tree("start versus"));
     }
 
     private void Update_Lives_UI()

@@ -119,7 +119,7 @@ public class script_manager_ui : MonoBehaviour {
             m_menu_elements[8 + player].SetActive(true);
             if(m_player_joined[0] == true && m_player_joined[1] == true)
             {
-                m_manager_game.Logic_Tree("start versus");
+                m_manager_game.Logic_Tree_Redirect("start versus");
                 m_menu_elements[6].SetActive(false);
                 m_menu_elements[0].SetActive(false);
             }
