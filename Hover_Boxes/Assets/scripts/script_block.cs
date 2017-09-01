@@ -27,6 +27,7 @@ public class script_block : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         StopAllCoroutines();
         StartCoroutine(Scale(1));
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -41,14 +42,14 @@ public class script_block : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         switch (type)
         {
             case 1: //bigger
-                c_time_desired = 0.1f;
+                c_time_desired = 0.05f;
                 c_scale_desired.x = c_scale_desired.y = script_manager.m_block_size * 2;
                 c_position_desired.x = m_position_default.x - script_manager.m_block_size / 2;
                 c_position_desired.y = m_position_default.y + script_manager.m_block_size / 2;
                 m_rectTransform.SetAsLastSibling(); //max z index
                 break;
             case 2: //smaller
-                c_time_desired = 1f;
+                c_time_desired = 0.5f;
                 c_scale_desired.x = c_scale_desired.y = script_manager.m_block_size;
                 c_position_desired.x = m_position_default.x;
                 c_position_desired.y = m_position_default.y;

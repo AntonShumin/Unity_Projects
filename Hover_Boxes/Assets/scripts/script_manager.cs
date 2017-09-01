@@ -39,4 +39,6 @@ public class script_manager : MonoBehaviour {
         }
 
     }
+
+
 }
