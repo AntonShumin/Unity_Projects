@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731316, g: 0.38074902, b: 0.3587254, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -108,6 +108,18 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &31127893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
 --- !u!1 &105063944
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +220,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -216,6 +227,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 661027399}
 --- !u!114 &105063950
 MonoBehaviour:
@@ -336,7 +348,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -344,6 +355,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 1039499855}
 --- !u!23 &244100362
 MeshRenderer:
@@ -465,7 +477,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -473,6 +484,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 1166637690}
 --- !u!23 &249728087
 MeshRenderer:
@@ -594,7 +606,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -602,6 +613,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 1518443273}
 --- !u!23 &324593610
 MeshRenderer:
@@ -995,7 +1007,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -1003,6 +1014,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 1065211172}
 --- !u!23 &501638557
 MeshRenderer:
@@ -1582,11 +1594,11 @@ MonoBehaviour:
     stateSpaceType: 1
   brainType: 3
   CoreBrains:
-  - {fileID: 1313171079}
-  - {fileID: 1642547957}
-  - {fileID: 773559364}
-  - {fileID: 734296266}
-  instanceID: 10256
+  - {fileID: 1940797650}
+  - {fileID: 31127893}
+  - {fileID: 1734754203}
+  - {fileID: 1738074963}
+  instanceID: 10274
 --- !u!114 &667765198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,43 +1738,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &734296266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)
-  m_EditorClassIdentifier: 
-  graphModel: {fileID: 4900000, guid: 1af5e8ed710e342d49d2b94e27f1bf22, type: 3}
-  graphScope: 
-  graphPlaceholders:
-  - name: epsilon
-    valueType: 1
-    minValue: 0
-    maxValue: 0
-  BatchSizePlaceholderName: batch_size
-  StatePlacholderName: state
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  ObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  brain: {fileID: 667765197}
---- !u!114 &773559364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 667765197}
 --- !u!1 &775674611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,7 +1891,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -1924,6 +1898,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 553753318}
 --- !u!23 &798726173
 MeshRenderer:
@@ -2357,7 +2332,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -2365,6 +2339,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 1951818276}
 --- !u!23 &1020715320
 MeshRenderer:
@@ -2780,7 +2755,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -2788,6 +2762,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 554764765}
 --- !u!23 &1259759885
 MeshRenderer:
@@ -2870,33 +2845,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1313171079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  continuousPlayerActions:
-  - key: 276
-    index: 0
-    value: 1
-  - key: 275
-    index: 0
-    value: -1
-  - key: 273
-    index: 1
-    value: 1
-  - key: 274
-    index: 1
-    value: -1
-  discretePlayerActions: []
-  defaultAction: -1
-  brain: {fileID: 667765197}
 --- !u!1 &1327236214
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,8 +3317,8 @@ MonoBehaviour:
     timeScale: 1
     targetFrameRate: 60
   defaultResetParameters: []
-  episodeCount: 0
   done: 0
+  episodeCount: 0
   currentStep: 0
   isInference: 0
   windowResize: 1
@@ -3443,7 +3391,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -3451,6 +3398,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 377530890}
 --- !u!23 &1525588921
 MeshRenderer:
@@ -3661,18 +3609,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1642547957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
 --- !u!1 &1649572250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,7 +3678,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -3750,6 +3685,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 689290300}
 --- !u!23 &1649572254
 MeshRenderer:
@@ -3871,7 +3807,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -3879,6 +3814,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 612506279}
 --- !u!23 &1696826349
 MeshRenderer:
@@ -3931,6 +3867,43 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1696826345}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1734754203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 667765197}
+--- !u!114 &1738074963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)(Clone)
+  m_EditorClassIdentifier: 
+  graphModel: {fileID: 4900000, guid: 3a0633ebb373f6140adf6c8b3ce1cd07, type: 3}
+  graphScope: 
+  graphPlaceholders:
+  - name: epsilon
+    valueType: 1
+    minValue: 0
+    maxValue: 0
+  BatchSizePlaceholderName: batch_size
+  StatePlacholderName: state
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  ObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  brain: {fileID: 667765197}
 --- !u!1 &1746325439
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,6 +4050,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1812549419}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1940797650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  continuousPlayerActions:
+  - key: 276
+    index: 0
+    value: 1
+  - key: 275
+    index: 0
+    value: -1
+  - key: 273
+    index: 1
+    value: 1
+  - key: 274
+    index: 1
+    value: -1
+  discretePlayerActions: []
+  defaultAction: -1
+  brain: {fileID: 667765197}
 --- !u!1 &1951818276
 GameObject:
   m_ObjectHideFlags: 0
@@ -4475,20 +4475,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 3.12
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -4659,7 +4645,6 @@ MonoBehaviour:
   observations: []
   maxStep: 5000
   resetOnDone: 1
-  id: 0
   reward: 0
   done: 0
   value: 0
@@ -4667,6 +4652,7 @@ MonoBehaviour:
   stepCounter: 0
   agentStoredAction: []
   memory: []
+  id: 0
   ball: {fileID: 1549743973}
 --- !u!23 &2114393986
 MeshRenderer:
