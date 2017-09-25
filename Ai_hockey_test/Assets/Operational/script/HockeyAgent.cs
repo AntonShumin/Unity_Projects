@@ -11,14 +11,17 @@ public class HockeyAgent : Agent {
 
     //cached
     private Vector3 c_distance;
+    private Vector3 c_velocity = Vector3.zero;
+    private Vector3 c_rotation = Vector3.zero;
 
     void Awake()
     {
-        m_ball = GameObject.Find("TennisBall").transform;
+        m_ball = transform.parent.parent.GetChild(0).transform;
         m_ball_rd = m_ball.GetComponent<Rigidbody>();
+        
 
-        m_stick = transform.Find("/collider").transform;
-        m_stick_rb = m_stick.GetComponent<Rigidbody>();
+        m_stick = transform.GetChild(0).transform;
+        m_stick_rb = gameObject.GetComponent<Rigidbody>();
     }
 
 	public override List<float> CollectState()
@@ -64,27 +67,47 @@ public class HockeyAgent : Agent {
 	public override void AgentStep(float[] act)
 	{
 
+        //limit values
+        for (int i = 0; i < act.Length; i++)
+        {
+            act[i] = Mathf.Max(act[i], -1);
+            act[i] = Mathf.Min(act[i], 1);
+        }
+
         //move x
+        c_velocity.x = act[0];
 
         //move y
+        c_velocity.y = act[1];
 
         //move z
+        c_velocity.z = act[2];
 
         //rotate x
+        c_rotation.x = act[3];
 
         //rotate y
+        c_rotation.y = act[4];
 
         //rotate z
+        c_rotation.z = act[5];
 
-	}
+
+        //move stick
+        m_stick_rb.velocity = c_velocity;
+        m_stick_rb.angularVelocity = c_rotation;
+
+    }
 
 	public override void AgentReset()
 	{
 
 	}
 
+    /*
 	public override void AgentOnDone()
 	{
 
 	}
+    */
 }
