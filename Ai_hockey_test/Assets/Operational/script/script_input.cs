@@ -24,7 +24,6 @@ public class script_input : MonoBehaviour {
         c_velocity.z = Input.GetAxis("Y");
         c_velocity *= m_velocity_multiplier;
         c_rotation.z = Input.GetAxis("rot_z");
-        Debug.Log(c_velocity);
         m_rb.velocity = c_velocity;
         m_rb.angularVelocity = c_rotation;
         

@@ -8,6 +8,7 @@ public class HockeyAgent : Agent {
     private Rigidbody m_ball_rd;
     private Transform m_stick;
     private Rigidbody m_stick_rb;
+    private float m_movement_multiplier = 2f;
 
     //cached
     private Vector3 c_distance;
@@ -94,7 +95,7 @@ public class HockeyAgent : Agent {
 
 
         //move stick
-        m_stick_rb.velocity = c_velocity;
+        m_stick_rb.velocity = c_velocity * m_movement_multiplier;
         m_stick_rb.angularVelocity = c_rotation;
 
     }
