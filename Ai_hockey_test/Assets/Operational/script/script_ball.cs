@@ -7,21 +7,37 @@ public class script_ball : MonoBehaviour {
     private HockeyAgent m_agent;
     private float m_traveled_distance = 1;
     private Vector3 m_last_position;
-    private Vector3 m_last_direction;
+    private string m_last_collider = "";
+    private float m_time_since_last_hit = 0;
+    private Vector3 m_default_position;
 
     //cached
-    private Vector3 c_diff_vector;
+    private string c_collider_name;
+
 
     void Awake()
     {
         m_agent = transform.parent.GetChild(1).GetChild(0).GetComponent<HockeyAgent>();
         m_last_position = transform.position;
+        m_default_position = transform.position;
+
+        Time.timeScale = 10f;
     }
 
     void Update()
     {
         m_traveled_distance +=  Mathf.Abs(Vector3.Distance(m_last_position, transform.position));
         m_last_position = transform.position;
+
+        m_time_since_last_hit += Time.deltaTime * Time.timeScale;
+
+        if (m_time_since_last_hit > 4)
+        {
+            m_agent.reward = -0.1f;
+            //Debug.Log("penaly " + m_time_since_last_hit);
+            m_time_since_last_hit = 0f;
+
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -29,26 +45,46 @@ public class script_ball : MonoBehaviour {
         if (collision.gameObject.GetComponent<HockeyAgent>())
         {
 
-            c_diff_vector = transform.position - collision.gameObject.transform.position;
-            c_diff_vector.y = 0;
-            Debug.Log(c_diff_vector);
+            
 
-
-            if (m_traveled_distance > 0.1f)
+            if (m_traveled_distance > 0.2f)
             {
+
+                c_collider_name = collision.collider.gameObject.name;
                 
 
-                if( Vector3.Dot(m_last_direction, c_diff_vector) < 0 )
+                if ( c_collider_name != m_last_collider )
                 {
-                    Debug.Log(Vector3.Dot(m_last_direction, GetComponent<Rigidbody>().velocity));
+                    //Debug.Log("reward");
+                    m_last_collider = c_collider_name;
+                    
+                    m_agent.reward = 0.1f;
+                    m_traveled_distance = 0f;
+
                 }
-                m_traveled_distance = 0f;
+
+                m_time_since_last_hit = 0f;
 
             }
 
-            m_last_direction = c_diff_vector;
-
         }
         
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        m_agent.reward = -1f;
+        m_agent.Reset();
+    }
+
+    public void ResetBall()
+    {
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        transform.position = m_default_position;
+        m_time_since_last_hit = 0f;
+        m_last_collider = "";
+        m_traveled_distance = 1f;
+
     }
 }

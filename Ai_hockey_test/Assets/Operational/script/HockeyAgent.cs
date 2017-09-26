@@ -9,6 +9,8 @@ public class HockeyAgent : Agent {
     private Transform m_stick;
     private Rigidbody m_stick_rb;
     private float m_movement_multiplier = 2f;
+    private Vector3 m_default_position;
+    private Quaternion m_default_rotation;
 
     //cached
     private Vector3 c_distance;
@@ -23,6 +25,9 @@ public class HockeyAgent : Agent {
 
         m_stick = transform.GetChild(0).transform;
         m_stick_rb = gameObject.GetComponent<Rigidbody>();
+
+        m_default_position = transform.position;
+        m_default_rotation = transform.rotation;
     }
 
 	public override List<float> CollectState()
@@ -100,10 +105,17 @@ public class HockeyAgent : Agent {
 
     }
 
-	public override void AgentReset()
-	{
+    void OnTriggerExit(Collider collider)
+    {
+        reward = -1f;
+       Reset();
+    }
 
-	}
+    public override void AgentReset()
+	{
+        m_ball.GetComponent<script_ball>().ResetBall();
+        ResetStick();
+    }
 
     /*
 	public override void AgentOnDone()
@@ -111,4 +123,14 @@ public class HockeyAgent : Agent {
 
 	}
     */
+
+    public void ResetStick()
+    {
+        m_stick_rb.velocity = Vector3.zero;
+        m_stick_rb.angularVelocity = Vector3.zero;
+
+        transform.position = m_default_position;
+        transform.rotation = m_default_rotation;
+
+    }
 }
