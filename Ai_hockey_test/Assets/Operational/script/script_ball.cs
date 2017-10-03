@@ -33,7 +33,7 @@ public class script_ball : MonoBehaviour {
 
         if (m_time_since_last_hit > 4)
         {
-            m_agent.reward = -0.1f;
+            m_agent.reward += -0.1f;
             //Debug.Log("penaly " + m_time_since_last_hit);
             m_time_since_last_hit = 0f;
 
@@ -58,7 +58,7 @@ public class script_ball : MonoBehaviour {
                     //Debug.Log("reward");
                     m_last_collider = c_collider_name;
                     
-                    m_agent.reward = 0.1f;
+                    m_agent.reward += 0.5f;
                     m_traveled_distance = 0f;
 
                 }
@@ -73,7 +73,7 @@ public class script_ball : MonoBehaviour {
 
     void OnTriggerExit(Collider collider)
     {
-        m_agent.reward = -1f;
+        m_agent.reward += -1f;
         m_agent.Reset();
     }
 

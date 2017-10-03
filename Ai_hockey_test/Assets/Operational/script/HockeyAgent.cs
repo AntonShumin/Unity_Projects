@@ -107,7 +107,7 @@ public class HockeyAgent : Agent {
 
     void OnTriggerExit(Collider collider)
     {
-        reward = -1f;
+       reward = -1f;
        Reset();
     }
 
